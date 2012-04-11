@@ -1,11 +1,12 @@
-Tutorial
-========
+Tutorials
+=========
 
 This is a collection of tutorials for BEM++.  There are several books that provide background on
-boundary integral equations and boundary element methods.  In these tutorials, we use 
-'Numerical Approximation Methods for Elliptic Boundary Value Problems', by Steinbach_, as our reference.
+boundary integral equations and boundary element methods.  Our notation will loosely follow that used in Steinbach_, 
+'Numerical Approximation Methods for Elliptic Boundary Value Problems'.
 
 .. toctree::
+   :maxdepth: 1
    :glob:
    
    tutorial_*

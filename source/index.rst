@@ -6,15 +6,15 @@
 Welcome to BEM++
 ================
 
-BEM++ is a project to develop a modern C++ boundary element library including the following features.
+BEM++ is a project to develop a modern C++ boundary element library including the following features:
 
 * Support of the standard kernels for Laplace, Elasticity, Helmholtz, and Maxwell problems.
 * Extensibility for adding other kernels.
-* Galerkin boundary element discretisation
-* Piecewise constant, and linear/quadratic conforming boundary element spaces
-* Extensive linear solver library via interface to Trilinos
+* Galerkin boundary element discretisation.
+* Piecewise constant and linear/quadratic conforming boundary element spaces.
+* Extensive linear solver library via interface to Trilinos.
 * Fast boundary elements via Adaptive Cross Approximation or Fast Multipole Methods.
-* Support for multi-threading on multi-core systems, and MPI on clusters.
+* Support for multi-threading on multi-core systems and MPI on clusters.
 * GPU acceleration via OpenCL.
 * Complete bindings to Python and Matlab.
 
@@ -26,24 +26,21 @@ The project is in heavy development, and we do net yet consider it usable for th
 
 * Laplace Single/Double/Conjugate Double and Hypersingular Potential for problems in three dimensions.
 * Piecewise constant and continuous piecewise linear basis functions.
-* Integrators for Galerkin discretisation
+* Integrators for Galerkin discretisation.
 * Mesh handling via Dune and interfaces for surface triangular meshes. Currently, we ony support Gmsh input.
 * Partial interfaces to Python.
 * Linear Algebra Interfaces to Trilinos.
 * Interfaces to AHMED for H-Matrix acceleration and Preconditioning.
 * Experimental support for OpenCL integrators.
 
+Documentation
+-------------
 
-Obtaining the code
-------------------
-The code is available from https://github.com/bempp/bempp. To check it out use ``git clone git://github.com/bempp/bempp.git``. To use all features the following additional libraries are required:
+.. toctree::
+   :maxdepth: 1
 
-* `AHMED <http://bebendorf.ins.uni-bonn.de/AHMED.html>`_ (H-Matrix implementation)
-* `Armadillo <http://arma.sourceforge.net>`_ (C++ Dense Linear Algebra)
-* `DUNE <http://www.dune-project.org/index.html>`_ (Grid Management, can be installed from the contrib subdirectory of BEM++)
-* `Trilinos <http://trilinos.sandia.gov>`_ (High-Performance parallel linear algebra and PDE routines)
-
-Please see the corresponding websites for infos about licensing and obtaining the software.
+   Downloading and building BEM++ <installation>
+   Tutorial examples <tutorial>
 
 Acknowledgements
 ----------------
@@ -73,18 +70,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-
-
-Tutorials
----------
-Note that the tutorial is still rather incomplete. Examples will be added over time.
-
-.. toctree::
-   :maxdepth: 2
-
-   intro
-   tutorial
 
 .. comment
 
