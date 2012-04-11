@@ -22,7 +22,7 @@ BEM++ is a joint project between University College London (UCL), the University
 
 Status
 ---------------
-The project is in heavy development, and we do net yet consider it usable for the wider public. The following features are already implemented.
+The project is in heavy development, and we do net yet consider it usable for the wider public. The following features are implemented, although many of them still require further testing and performance optimisations.
 
 * Laplace Single/Double/Conjugate Double and Hypersingular Potential for problems in three dimensions.
 * Piecewise constant and continuous piecewise linear basis functions.
@@ -33,7 +33,17 @@ The project is in heavy development, and we do net yet consider it usable for th
 * Interfaces to AHMED for H-Matrix acceleration and Preconditioning.
 * Experimental support for OpenCL integrators.
 
-Most of these features need further testing and performance optimisation. We therefore do not yet consider them ready for general use.
+
+Obtaining the code
+--------------------
+The code is available from https://github.com/bempp/bempp. To check it out use ``git clone git://github.com/bempp/bempp.git``. To use all features the following additional libraries are required:
+
+* `AHMED <http://bebendorf.ins.uni-bonn.de/AHMED.html>`_ (H-Matrix implementation)
+* `Armadillo <http://arma.sourceforge.net>`_ (C++ Dense Linear Algebra)
+* `DUNE <http://www.dune-project.org/index.html>`_ (Grid Management, can be installed from the contrib subdirectory of BEM++)
+* `Trilinos <http://trilinos.sandia.gov>`_ (High-Performance parallel linear algebra and PDE routines)
+
+Please see the corresponding websites for infos about licensing and obtaining the software.
 
 Acknowledgements
 ----------------
@@ -42,9 +52,33 @@ The project was made possible by EPSRC Grant EP/I030042/1, which started 01 Octo
 
 Licensing
 ----------------
-The library is licensed under a BSD license. 
+The library itself is licensed under a BSD license. The full licensing text is:
 
-Contents:
+Copyright (C) 2011 by the BEM++ Authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+
+Tutorials
+--------------------
+Note that the tutorial is still rather incomplete. Examples will be added over time.
 
 .. toctree::
    :maxdepth: 2
@@ -53,7 +87,7 @@ Contents:
    tutorial
 
 Indices and tables
-==================
+-------------------
 
 * :ref:`genindex`
 * :ref:`modindex`
