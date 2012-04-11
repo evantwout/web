@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to BEM++
-=================================
+================
 
 BEM++ is a project to develop a modern C++ boundary element library including the following features.
 
@@ -21,7 +21,7 @@ BEM++ is a project to develop a modern C++ boundary element library including th
 BEM++ is a joint project between University College London (UCL), the University of Reading and the University of Durham. The main coding team is located at UCL and consists of *Simon Arridge, Timo Betcke, Joel Phillips, Martin Schweiger, Wojciech Smigaj*. Other project members include Stephen Langdon (Reading), Douglas Saddy (Reading), and Jon Trevelyan (Durham).
 
 Status
----------------
+------
 The project is in heavy development, and we do net yet consider it usable for the wider public. The following features are implemented, although many of them still require further testing and performance optimisations.
 
 * Laplace Single/Double/Conjugate Double and Hypersingular Potential for problems in three dimensions.
@@ -35,7 +35,7 @@ The project is in heavy development, and we do net yet consider it usable for th
 
 
 Obtaining the code
---------------------
+------------------
 The code is available from https://github.com/bempp/bempp. To check it out use ``git clone git://github.com/bempp/bempp.git``. To use all features the following additional libraries are required:
 
 * `AHMED <http://bebendorf.ins.uni-bonn.de/AHMED.html>`_ (H-Matrix implementation)
@@ -51,7 +51,7 @@ The project was made possible by EPSRC Grant EP/I030042/1, which started 01 Octo
 
 
 Licensing
-----------------
+---------
 The library itself is licensed under a BSD license. The full licensing text is:
 
 Copyright (C) 2011 by the BEM++ Authors
@@ -77,7 +77,7 @@ THE SOFTWARE.
 
 
 Tutorials
---------------------
+---------
 Note that the tutorial is still rather incomplete. Examples will be added over time.
 
 .. toctree::
@@ -86,10 +86,12 @@ Note that the tutorial is still rather incomplete. Examples will be added over t
    intro
    tutorial
 
-Indices and tables
--------------------
+.. comment
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   Indices and tables
+   -------------------
+   
+   * :ref:`genindex`
+   * :ref:`modindex`
+   * :ref:`search`
 

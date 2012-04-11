@@ -28,26 +28,27 @@ Suppose that we have function spaces, :math:`S^0 \subset H^{-\frac{1}{2}}(\Gamma
 and :math:`\{\phi^1_i, i=1\dots n_1\}` respectively and that we know the 
 know the Dirichlet data 
 
-.. math:`\gamma_0^{ext}u =: g = \sum_i g_i \phi^0_i`.  
+.. math:: \gamma_0^{ext}u =: g = \sum_i g_i \phi^0_i  
 
 We will seek an approximation to the Neumann data, 
 
-.. math:`\gamma_1^{ext}u \approx b = \sum_i b_i \phi^1_i` 
+.. math:: \gamma_1^{ext}u \approx b = \sum_i b_i \phi^1_i 
 
 such that :eq:`steklov` is satisfied weakly, i.e.
 
 .. math:: \sum_i g_i (V \phi^0_i, \phi^0_j) = \sum_i b_i((-\frac{1}{2} I + K)\phi^1_i, \phi^0_j) \qquad \forall j 
 
-Note that the :math`H^{-\frac{1}{2}}(\Gamma)'-ellipticity of :math:`V` means that the problem is well-posed. 
+Note that the :math:`H^{-\frac{1}{2}}(\Gamma)`-ellipticity of :math:`V` means that the problem is well-posed. 
 In this tutorial, we will use BEM++ to assemble the matrices, :math:`V_{ij} := (V \phi^0_i, \phi^0_j)` and 
 :math:`M_{ij} := ((-\frac{1}{2} I + K)\phi^1_i, \phi^0_j)`.  
 
+.. highlight:: c
 
 Implementation
 --------------
-A complete listing can be found in examples/tutorial_dirichlet.cpp.  
+A complete listing can be found in ``examples/tutorial_dirichlet.cpp``.  
 
-First we need to define the domain, these are described by a Bempp::Grid object in BEM++. To import a GMSH grid, run::
+First we need to define the domain, these are described by a ``Bempp::Grid`` object in BEM++. To import a GMSH grid, run::
 
    #include "grid/grid_factory.hpp"
    using namespace Bempp;
@@ -76,7 +77,7 @@ and piecewice constants for :math:`S^0`::
 The calls to assignDofs() initialise the spaces.
 
 Next we need to build some operators.  BEM++ has the concept of two types of operator.  The underlying "continuous"
-linear operators are represented by lightweight classes that implement the Bempp::LinearOperator interface.
+linear operators are represented by lightweight classes that implement the ``Bempp::LinearOperator`` interface.
 
 ::
 
@@ -91,7 +92,7 @@ linear operators are represented by lightweight classes that implement the Bempp
    IdentityOperator<double> id;
 
 To perform calculations with these operators, we need to discretise them.  Discretised operators are subclasses
-of Bempp::DiscreteScalarValuedLinearOperator.  To perform the discretisation, we need to evaluate (some of) the terms
+of ``Bempp::DiscreteScalarValuedLinearOperator``.  To perform the discretisation, we need to evaluate (some of) the terms
 :math:`V_{ij}` and :math:`M_{ij}`.  This is done using Fiber.   
 
 ::
@@ -123,7 +124,7 @@ the integrations.  All we need to do is pass it to them:
    DiscreteLinearOperatorPtr discreteId =
       id.assembleWeakForm(pwConstSpace, pwLinearCtsSpace, factory, assemblyOptions);
 
-The Bempp::AssemblyOptions and Fiber::AccuracyOptions and classes allow us to configure the type of
+The ``Bempp::AssemblyOptions`` and ``Fiber::AccuracyOptions`` and classes allow us to configure the type of
 discretisation and integration.  In this case, we are content with the default options.  BEM++ supports
 the representation of the discrete operator in several forms.  In this example we're just going to ask
 for dense local Matrices, which are managed using the Armadillo C++ linear algebra library. 
@@ -139,7 +140,7 @@ for dense local Matrices, which are managed using the Armadillo C++ linear algeb
  
 Finally, we can solve the system. Both the bases that we have used are nodal, so determining the :math:`g_i` 
 and interpreting the :math:`b_i` is straightforward.  In this case, we're imposing constant Dirichlet data.  
-On the unit sphere contained in sphere-644.msh, this means that the exterior Laplace solution is :math:`\frac{1}{r}`,
+On the unit sphere contained in sphere-644.msh, this means that the exterior Laplace solution is :math:`u(x) = \frac{1}{|x|}`,
 so we expect the Neumann data to be uniformly equal to -1 
 
 ::
