@@ -41,7 +41,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'BEM++'
-copyright = u'2012, Timo Betcke, Wojciech Śmigaj, Martin Schweiger, Joel Phillips, Simon Arridge'
+copyright = u'2012, Simon Arridge, Timo Betcke, Joel Phillips, Martin Schweiger, Wojciech Śmigaj'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -91,7 +91,7 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
+html_theme = 'sphinxdoc'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -99,7 +99,7 @@ html_theme = 'default'
 
 timosfavouritecolour = '#CA7900' # selected from http://sphinx.pocoo.org/contents.html
 
-html_theme_options={'sidebarbgcolor':'white', 'sidebartextcolor':timosfavouritecolour, 'sidebarlinkcolor':'dimgray', 'relbarbgcolor':timosfavouritecolour, 'relbartextcolor':'white', 'relbarlinkcolor':'white', 'bgcolor':'white', 'textcolor':'black', 'linkcolor':'black', 'visitedlinkcolor':'gray', 'headtextcolor':timosfavouritecolour,'headlinkcolor':'black','bodyfont':'helvetica,sans-serif', 'headfont':'helvetica,sans-serif', 'footerbgcolor':'white', 'footertextcolor':'gray', 'headbgcolor':'white', 'visitedlinkcolor':'black', 'sidebarbtncolor':timosfavouritecolour}
+#html_theme_options={'sidebarbgcolor':'white', 'sidebartextcolor':timosfavouritecolour, 'sidebarlinkcolor':'dimgray', 'relbarbgcolor':timosfavouritecolour, 'relbartextcolor':'white', 'relbarlinkcolor':'white', 'bgcolor':'white', 'textcolor':'black', 'linkcolor':'black', 'visitedlinkcolor':'gray', 'headtextcolor':timosfavouritecolour,'headlinkcolor':'black','bodyfont':'helvetica,sans-serif', 'headfont':'helvetica,sans-serif', 'footerbgcolor':'white', 'footertextcolor':'gray', 'headbgcolor':'white', 'visitedlinkcolor':'black', 'sidebarbtncolor':timosfavouritecolour}
 
 
 #html_theme_options = {'bodyfont':'sans-serif', 
@@ -115,10 +115,10 @@ html_theme_options={'sidebarbgcolor':'white', 'sidebartextcolor':timosfavouritec
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-#html_title = None
+html_title ='BEM++ - A C++  boundary element library' 
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-#html_short_title = None
+#html_short_title = BEM++ 
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -196,7 +196,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'BEM.tex', u'BEM++ Documentation',
-   u'Timo Betcke, Wojciech Śmigaj, Martin Schweiger, Joel Phillips, Simon Arridge', 'manual'),
+   u'Simon Arridge, Timo Betcke, Joel Phillips, Martin Schweiger, Wojciech Śmigaj', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -226,7 +226,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'bem', u'BEM++ Documentation',
-     [u'Timo Betcke, Wojciech Śmigaj, Martin Schweiger, Joel Phillips, Simon Arridge'], 1)
+     [u'Simon Arridge, Timo Betcke, Joel Phillips, Martin Schweiger, Wojciech Śmigaj'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -240,7 +240,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'BEM', u'BEM++ Documentation',
-   u'Timo Betcke, Wojciech Śmigaj, Martin Schweiger, Joel Phillips, Simon Arridge', 'BEM', 'One line description of project.',
+   u'Simon Arridge, Timo Betcke, Joel Phillips, Martin Schweiger, Wojciech Śmigaj', 'BEM', 'One line description of project.',
    'Miscellaneous'),
 ]
 
