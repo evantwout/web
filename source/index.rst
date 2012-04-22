@@ -40,7 +40,7 @@ Documentation
    :maxdepth: 1
 
    Downloading and building BEM++ <installation>
-   Tutorial examples <tutorial>
+..   Tutorial examples <tutorial>
 
 Acknowledgements
 ----------------

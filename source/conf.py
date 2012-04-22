@@ -115,7 +115,7 @@ timosfavouritecolour = '#CA7900' # selected from http://sphinx.pocoo.org/content
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title ='BEM++ - A C++  boundary element library' 
+html_title ='BEM++: An open source boundary element library' 
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = BEM++ 
