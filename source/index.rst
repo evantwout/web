@@ -32,8 +32,8 @@ Documentation
 
    Installation <installation>
    Tutorial <tutorial_dirichlet>
-   C++ interface reference <http://www.bempp.org/files/cppref/index.html>
-   Python interface reference <http://www.bempp.org/files/pythonref/index.html>
+   C++ interface reference <http://www.bempp.org/cppref/index.html>
+   Python interface reference <http://www.bempp.org/pythonref/index.html>
 
 Acknowledgements
 ----------------
