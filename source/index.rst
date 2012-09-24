@@ -6,32 +6,23 @@
 Welcome to BEM++
 ================
 
-BEM++ is a project to develop a modern C++ boundary element library including the following features:
-
-* Support of the standard kernels for Laplace, Elasticity, Helmholtz, and Maxwell problems.
-* Extensibility for adding other kernels.
-* Galerkin boundary element discretisation.
-* Piecewise constant and linear/quadratic conforming boundary element spaces.
-* Extensive linear solver library via interface to Trilinos.
-* Fast boundary elements via Adaptive Cross Approximation or Fast Multipole Methods.
-* Support for multi-threading on multi-core systems and MPI on clusters.
-* GPU acceleration via OpenCL.
-* Complete bindings to Python and Matlab.
-
-BEM++ is a joint project between University College London (UCL), the University of Reading and the University of Durham. The main coding team is located at UCL and consists of *Simon Arridge, Timo Betcke, Joel Phillips, Martin Schweiger, Wojciech Smigaj*. Other project members include Stephen Langdon (Reading), Douglas Saddy (Reading), and Jon Trevelyan (Durham).
+BEM++ is a project to develop a modern open source C++ boundary
+element library. It is a joint project between University College
+London (UCL), the University of Reading and the University of
+Durham. The main coding team is located at UCL and consists of Simon
+Arridge, Timo Betcke, Martin Schweiger and Wojciech Smigaj. Other project members include Stephen Langdon (Reading), Douglas Saddy (Reading), and Jon Trevelyan (Durham).
 
 Status
 ------
-The project is in heavy development, and we do net yet consider it usable for the wider public. The following features are implemented, although many of them still require further testing and performance optimisations.
+The project is still in development but already usable for certain problems. The following features are implemented.
 
-* Laplace Single/Double/Conjugate Double and Hypersingular Potential for problems in three dimensions.
+* Single-layer potential, double-layer potential, adjoint double-layer potential and hypersingular boundary operators for Laplace, Helmholtz and modified Helmholtz problems in three dimensions.
 * Piecewise constant and continuous piecewise linear basis functions.
 * Integrators for Galerkin discretisation.
-* Mesh handling via Dune and interfaces for surface triangular meshes. Currently, we ony support Gmsh input.
-* Partial interfaces to Python.
-* Linear Algebra Interfaces to Trilinos.
-* Interfaces to AHMED for H-Matrix acceleration and Preconditioning.
-* Experimental support for OpenCL integrators.
+* Triangular surface mesh handling (via Dune). Import of meshes in Gmsh format.
+* Interfaces to Python.
+* Linear algebra interfaces to Trilinos.
+* Interfaces to AHMED for H-matrix-based acceleration and preconditioning.
 
 Documentation
 -------------
@@ -39,8 +30,10 @@ Documentation
 .. toctree::
    :maxdepth: 1
 
-   Downloading and building BEM++ <installation>
-..   Tutorial examples <tutorial>
+   Installation <installation>
+   Tutorial <tutorial_dirichlet>
+   C++ interface reference <http://www.bempp.org/files/cppref/index.html>
+   Python interface reference <http://www.bempp.org/files/pythonref/index.html>
 
 Acknowledgements
 ----------------
@@ -75,7 +68,7 @@ THE SOFTWARE.
 
    Indices and tables
    -------------------
-   
+
    * :ref:`genindex`
    * :ref:`modindex`
    * :ref:`search`
