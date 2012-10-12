@@ -1,6 +1,6 @@
 .. highlight:: none
 
-Tutorial: Exterior Dirichlet problem for the Laplace equation
+Exterior Dirichlet problem for the Laplace equation
 ===================================================
 
 Mathematical background
@@ -108,7 +108,10 @@ Implementation in C++
 ---------------------
 
 A complete listing of the code developed in this section can be found in
-``examples/tutorial_dirichlet.cpp``.
+|linkcpptext|_.
+
+.. _linkcpptext: https://raw.github.com/bempp/bempp/master/examples/tutorial_dirichlet.cpp
+.. |linkcpptext| replace:: ``examples/tutorial_dirichlet.cpp``
 
 We begin by loading a triangular mesh approximating the surface
 :math:`\Gamma` from a file in the `Gmsh <http://geuz.org/gmsh>`_ format::
@@ -119,7 +122,7 @@ We begin by loading a triangular mesh approximating the surface
 
     using namespace Bempp;
 
-    const char* meshFile = "meshes/sphere-644.msh";
+    const char* meshFile = "meshes/sphere-h-0.2.msh";
     GridParameters params;
     params.topology = GridParameters::TRIANGULAR;
     std::auto_ptr<Grid> grid = GridFactory::importGmshGrid(params, meshFile);
@@ -139,9 +142,6 @@ will use the space of piecewise-linear scalar functions for
     PiecewiseLinearContinuousScalarSpace<BFT> S0(*grid);
     PiecewiseConstantScalarSpace<BFT> S1(*grid);
 
-    S1.assignDofs();
-    S0.assignDofs();
-
 The space classes are templated on ``BasisFunctionType``, the type
 used to represent values of their basis functions. It can be set to
 ``float``, ``double``, ``std::complex<float>`` or
@@ -149,9 +149,7 @@ used to represent values of their basis functions. It can be set to
 refer to the chosen basis function type, like we did in the above
 snippet (``BFT``). The constructors of space objects take a single
 argument -- a reference to the ``Grid`` on whose elements live
-individual basis functions. The calls to ``assignDofs()`` initialise
-the spaces, performing the mapping of local to global degrees of
-freedom.
+individual basis functions.
 
 We would like now to construct the necessary boundary operators.
 Before we do that, however, we need to define a ``Context`` object,
@@ -179,9 +177,22 @@ second, ``ResultType``, is the type used to represent the values
 of the integrals. Obviously, in problems involving complex-valued
 operators, like those related to the Helmholtz equation, the result
 type needs to be chosen as ``std::complex<float>`` or
-``std::complex<double>``. The constructor of
-``NumericalQuadratureStrategy`` takes an optional parameter that can
-be used to fine-tune the quadrature accuracy.
+``std::complex<double>``.
+
+The constructor of ``NumericalQuadratureStrategy`` takes an optional
+parameter that can be used to fine-tune the quadrature accuracy. For
+instance, by writing ::
+
+    AccuracyOptions accuracyOptions;
+    accuracyOptions.doubleRegular.setRelativeQuadratureOrder(2);
+    NumericalQuadratureStrategy<BFT, RT> quadStrategy(accuracyOptions);
+
+we can increase the accuracy order of the quadrature rule used to
+approximate integrals of regular functions over pairs of elements by
+two with respect to the default value. It is also possible to make the
+quadrature order depend on the distance by passing to the
+``NumericalQuadratureStrategy`` constructor an instance of
+``AccuracyOptionsEx`` rather than an ``AccuracyOptions`` object.
 
 The ``AssemblyOptions`` object controls higher-level aspects of the
 weak-form assembly. Most importantly, it determines whether the
@@ -477,8 +488,8 @@ numerical solution::
     double relativeError = diff.L2Norm() / exactSolFun.L2Norm();
     std::cout << "Relative L^2 error: " << relativeError << std::endl;
 
-For the 644-element mesh used in the example this relative error turns
-out to be 3.6%.
+For the 604-element mesh used in the example this relative error turns
+out to be 4.5%.
 
 TODO: write the part on evaluating :math:`u` inside :math:`\Omega^{\text{c}}`.
 
@@ -498,7 +509,10 @@ Implementation in Python
 Here we will present the Python version of the program developed in
 the previous section. Its structure is similar to the C++ version. A
 complete listing of the code developed in this section can be found in
-``python/examples/tutorial_dirichlet.py``.
+|linkpytext|_.
+
+.. _linkpytext: https://raw.github.com/bempp/bempp/master/python/examples/tutorial_dirichlet.py
+.. |linkpytext| replace:: ``python/examples/tutorial_dirichlet.py``
 
 To begin with, we import the symbols defined by the BEM++ and NumPy
 Python packages::
@@ -560,8 +574,6 @@ The next step is to initialise the function spaces::
 
     pwiseConstants = createPiecewiseConstantScalarSpace(context, grid)
     pwiseLinears = createPiecewiseLinearContinuousScalarSpace(context, grid)
-    pwiseConstants.assignDofs()
-    pwiseLinears.assignDofs()
 
 As mentioned before, the ``context`` parameter is used to determine
 the right basis function type for the ``Space`` objects.
@@ -592,16 +604,16 @@ the right-hand side of :eq:`steklov`, we write::
     rhs = rhsOp * dirichletData
 
 The code is much simpler than in C++. As its last parameter,
-``createGridFunction()`` takes a
-reference to a Python function that is expected to take a single
-parameter -- a one-dimensional NumPy array ``point`` storing the
-global coordinates of a point -- and return the value of the function
-at this point. If the chosen expansion space is vector-valued, the
-return value should be a NumPy array, otherwise it can be a scalar, as
-in the above snippet. The repeated calling of a non-vectorised Python
-function incurs a slight performance penalty, but this overhead is
-normally insignificant compared to the time taken by the total
-calculation.
+``createGridFunction()`` takes a reference to a Python function that
+is expected to take a single parameter -- a one-dimensional NumPy
+array ``point`` storing the global coordinates of a point -- and
+return the value of the function at this point. (One can also create
+grid functions dependent on the orientation of the surface normal). If
+the chosen expansion space is vector-valued, the return value should
+be a NumPy array, otherwise it can be a scalar, as in the above
+snippet. The repeated calling of a non-vectorised Python function
+incurs a slight performance penalty, but this overhead is normally
+insignificant compared to the time taken by the total calculation.
 
 Having constructed the left-hand-side operator and the right-hand-side
 grid function, we turn to solving the resulting equation, which again
@@ -633,4 +645,4 @@ It remains to compare the numerical and analytical solution::
     print "Relative L^2 error:", relError
 
 TODO: describe how to plot the field on a cross-section plane using
-the ``vis`` module.
+the ``visualization`` module.
