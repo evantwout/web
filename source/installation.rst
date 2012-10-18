@@ -10,20 +10,33 @@ out, use ``git clone git://github.com/bempp/bempp.git``.
 Installation
 ------------
 
-To build the library you need a current version of Python 2 (2.6 or
-newer).  The Python interface has mostly been tested with
-Enthought Python, but other distributions will also work (however, see below
-for important remarks about BLAS and LAPACK). Note that Python
-visualization depends on Mayavi2 being available. The remaining dependencies of
-the library (currently Armadillo, Boost, Dune, Swig, Intel TBB and Trilinos) are
-automatically downloaded and compiled by the installer. The installer
-depends on CMake as a build tool. Since not every system provides
-CMake, by default it is automatically downloaded and installed into the
-BEM++ installation directory before the other dependencies are compiled and installed.
+To build and install the library, you need
 
-You need at least 2.5 GB of free space to build the library and all its dependencies; however, most of
-this space can be recovered after a successful installation. The library has been
-tested under Scientific Linux 6.1, Ubuntu 12.04, OpenSUSE 12.1 and Mac OS 10.7.
+- a recent version of Python 2 (2.6 or newer; we recommend using the `Enthought
+  Python Distribution <http://www.enthought.com/products/epd.php>`_)
+
+- a modern C++ compiler
+
+- a Fortran compiler (required by Dune, one of the BEM++ dependencies)
+
+- a BLAS and LAPACK implementation (**Important:** read the information in the
+  :ref:`Location of BLAS and LAPACK <location-of-blas-and-lapack>` paragraph
+  below)
+
+- (optional) sources of the AHMED library for H-matrix calculations; you can
+  download them from `<http://bebendorf.ins.uni-bonn.de/AHMED.html>`_.
+
+- (optional) the Python Mayavi module, if you want to use the visualization
+  features from the Python interface to BEM++.
+
+The build system used to compile BEM++ (CMake) and the remaining dependencies of
+the library (currently Armadillo, Boost, Dune, Intel TBB, Swig and Trilinos)
+are automatically downloaded and compiled by the installer. You need at least
+2.5 GB of free space to build the library and all its dependencies; however,
+most of this space can be recovered after a successful installation.
+
+The library has been tested under Scientific Linux 6.1, Ubuntu 12.04,
+OpenSUSE 12.1 and Mac OS 10.7.
 
 To build the library, do the following:
 
@@ -32,13 +45,15 @@ To build the library, do the following:
 
    You may wish to change at least the following options:
 
-   - Location of BLAS and LAPACK.  You can either use Intel MKL or
-     manually specify BLAS and LAPACK libraries.  If you intend to use
-     the Python wrappers of BEM++, we recommend linking BEM++ with the
-     same BLAS and LAPACK as the NumPy package.  If your NumPy is
-     linked with MKL (this is the case in Enthought Python, in
-     particular), you can tell the BEM++ installer to detect the
-     location of the MKL libraries automatically.
+   .. _location-of-blas-and-lapack:
+
+   - Location of BLAS and LAPACK.  You can either use Intel MKL or manually
+     specify BLAS and LAPACK libraries.  If you intend to use the Python
+     wrappers of BEM++, we recommend linking BEM++ with the same BLAS and LAPACK
+     as the NumPy package.  If your NumPy is linked with MKL, as is the case
+     with the full version of Enthought Python Distribution (i.e. other than EPD
+     Free), you can tell the BEM++ installer to detect the location of the MKL
+     libraries automatically.
 
      .. warning:: Many Linux distributions come with
         versions of BLAS and LAPACK built with the gfortran compiler.
@@ -53,18 +68,33 @@ To build the library, do the following:
         including ``-fmax-stack-var-size=66560`` in the list of
         gfortran compilation options.
 
-        **Take-home message:** If you do not feel comfortable with
-        compiling LAPACK and NumPy on your own, we strongly
-        recommend to use Enthought Python to install BEM++ and to
-        uncomment the lines ``enable_mkl=yes`` and
-        ``source=like_numpy`` in the ``MKL`` section of the
-        configuration file.
+     .. note:: BEM++ by default uses multiple threads to assemble matrix
+        representations of integral operators. To avoid performance loss due to
+        nested parallelization, BLAS and LAPACK routines should therefore run in
+        serial mode. For some popular BLAS and LAPACK implementations, this can
+        be ensured as follows:
+
+        - MKL: no need to do anything, BEM++ manages the number of threads
+          automatically.
+        - GotoBLAS and OpenBLAS: set the environmental variable OMP_NUM_THREADS to
+          1 before running programs using BEM++.
+        - ATLAS: number of threads is determined at compilation time. Use a serial
+          version of ATLAS.
+
+     .. admonition:: Take-home message
+        :class: warning
+
+        If you do not feel comfortable with compiling LAPACK and NumPy on
+        your own, and if you have access to a full version of the Enthought
+        Python Distribution (i.e. other than EPD Free), we strongly recommend
+        you to use it to install BEM++. In this case, you should uncomment the
+        lines ``enable_mkl=yes`` and ``source=like_numpy`` in the ``MKL``
+        section of the configuration file. Note that academic users can obtain a
+        full version of the Enthought Python Distribution free of charge.
 
    - Enable AHMED for H-Matrix support. You need to uncomment
-     ``enable_ahmed=yes`` and set the option ``file_name`` in the
-     ``AHMED`` section of the configuration file to the location of
-     the AHMED source file. You can download the file from `here
-     <http://bebendorf.ins.uni-bonn.de/AHMED.html>`_.
+     ``enable_ahmed=yes`` and set the option ``file_name`` in the AHMED section
+     to the location of the archive with AHMED source code.
 
 2. Run the command ::
 
@@ -72,7 +102,8 @@ To build the library, do the following:
 
    This bootstrap phase downloads all dependencies, setups the
    necessary directories and compiles and installs CMake into the
-   bempp installation directory. Note that you need to have write access to the installation directory.
+   BEM++ installation directory. Note that you need to have write access
+   to the installation directory.
 
 3. Run the command ::
 
@@ -134,8 +165,8 @@ On a Mac, you would omit ``-Wl,-rpath,<prefix>/bempp/lib``, but type ``export
 DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:<prefix>/bempp/lib`` before running
 ``my_program``.
 
-The file ``doc/CMakeLists.txt.example`` contains an example ``CMakeLists`` file
-that can be used to build a program employing BEM++ with CMake.
+The file ``doc/misc/CMakeLists.txt.example`` contains an example ``CMakeLists``
+file that can be used to build a program employing BEM++ with CMake.
 
 To use the Python interface to BEM++, simply put ::
 
@@ -146,13 +177,10 @@ To use the Python interface to BEM++, simply put ::
 at the beginning of your Python script (replacing ``<prefix>`` with the path to
 the BEM++ installation directory).
 
-Final note
-----------
+Troubleshooting
+---------------
 
-The library is not yet officially released. We are still working on the
-documentation and smaller issues with the code. The library is in an alpha
-state: the interfaces are not stable yet and might change in a
-backward-incompatible way. If you want to try BEM++ and run into problems, please
-let us know.
+If you run into problems with installation or usage of BEM++, please let us know
+by opening an issue at https://github.com/bempp/bempp/issues.
 
                                                                -- The BEM++ Team
