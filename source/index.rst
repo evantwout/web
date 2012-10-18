@@ -32,7 +32,7 @@ The project is still in development but already usable for certain problems. The
 
 - Assembly of H-matrix representations of boundary integral operators via
   adaptive cross approximation (ACA) supported thanks to an interface to
-  M. Bebendorf’s AHMED library.
+  M. Bebendorf’s `AHMED <http://bebendorf.ins.uni-bonn.de/AHMED.html>`_ library.
 
 - H-matrix-based preconditioners (via AHMED).
 
