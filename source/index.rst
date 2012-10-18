@@ -16,13 +16,35 @@ Status
 ------
 The project is still in development but already usable for certain problems. The following features are implemented.
 
-* Single-layer potential, double-layer potential, adjoint double-layer potential and hypersingular boundary operators for Laplace, Helmholtz and modified Helmholtz problems in three dimensions.
-* Piecewise constant and continuous piecewise linear basis functions.
-* Integrators for Galerkin discretisation.
-* Triangular surface mesh handling (via Dune). Import of meshes in Gmsh format.
-* Interfaces to Python.
-* Linear algebra interfaces to Trilinos.
-* Interfaces to AHMED for H-matrix-based acceleration and preconditioning.
+- Galerkin discretization of all standard boundary integral operators
+  (single-layer potential, double-layer potential, adjoint double-layer
+  potential, hypersingular operator) for Laplace, Helmholtz and modified
+  Helmholtz problems in three dimensions.
+
+- Numerical evaluation of boundary-element integrals (singular integrals dealt
+  with using Sauter-Schwab quadrature rules).
+
+- Triangular surface mesh handling. Import of meshes in Gmsh format.
+
+- Piecewise constant and continuous piecewise linear basis functions.
+
+- Dense-matrix representation of boundary integral operators supported natively.
+
+- Assembly of H-matrix representations of boundary integral operators via
+  adaptive cross approximation (ACA) supported thanks to an interface to
+  M. Bebendorf’s AHMED library.
+
+- H-matrix-based preconditioners (via AHMED).
+
+- Interfaces to iterative linear solvers from Trilinos.
+
+- Evaluation of potentials in space (away from the discretized surface).
+
+- Export of solutions in VTK format.
+
+- Parallel operation on shared-memory CPU architectures.
+
+- C++ and Python interfaces.
 
 Documentation
 -------------
