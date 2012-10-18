@@ -186,17 +186,17 @@ latex_elements = {
 #'papersize': 'letterpaper',
 
 # The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+'pointsize': '11pt',
 
 # Additional stuff for the LaTeX preamble.
-#'preamble': '',
+'preamble': '\\usepackage{amsmath}\n\\usepackage{amsfonts}',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'BEM.tex', u'BEM++ Documentation',
-   u'Simon Arridge, Timo Betcke, Joel Phillips, Martin Schweiger, Wojciech Śmigaj', 'manual'),
+   u'Simon Arridge\\and Timo Betcke\\and Joel Phillips\\and Martin Schweiger\\and Wojciech Śmigaj', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
