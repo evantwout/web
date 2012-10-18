@@ -190,7 +190,7 @@ instance, by writing ::
 we can increase the accuracy order of the quadrature rule used to
 approximate integrals of regular functions over pairs of elements by
 two with respect to the default value. It is also possible to make the
-quadrature order depend on the distance by passing to the
+quadrature order depend on the distance between elements by passing to the
 ``NumericalQuadratureStrategy`` constructor an instance of
 ``AccuracyOptionsEx`` rather than an ``AccuracyOptions`` object.
 
@@ -347,10 +347,17 @@ correspond to the function
     :label: exact-solution
 
 which is an exact solution of the Laplace equation away from the point
-:math:`x = y = z = 0` and decays to zero at infinity. The plot of this function on the chosen spherical mesh is shown in the figure below.
+:math:`x = y = z = 0` and decays to zero at infinity. The plot of this
+function on the chosen spherical mesh is shown in the figure below.
 
-.. image:: dirichlet_data.png
-     :width: 300pt
+.. only:: html
+
+    .. image:: dirichlet_data.png
+
+.. only:: not html
+
+    .. image:: dirichlet_data.png
+        :width: 300pt
 
 An instance of ``DirichletData`` as defined above can be used to
 create a ``GridFunction`` object representing a function defined on a
@@ -452,8 +459,14 @@ added automatically).
 
 The numerical solution obtained in this way is shown in the figure below.
 
-.. image:: solution.png
-     :width: 300pt
+.. only:: html
+
+    .. image:: solution.png
+
+.. only:: not html
+
+    .. image:: solution.png
+        :width: 300pt
 
 Since we know the analytical solution :eq:`exact-solution` to the
 posed Dirichlet problem, we can calculate the exact Neumann trace of
@@ -491,7 +504,94 @@ numerical solution::
 For the 604-element mesh used in the example this relative error turns
 out to be 4.5%.
 
-TODO: write the part on evaluating :math:`u` inside :math:`\Omega^{\text{c}}`.
+Having now at our disposal both the Dirichlet and Neumann data, we can use the
+Green's representation formula :eq:`green` to calculate :math:`u` at any point
+in :math:`\Omega^{\text{c}}`. To this end, we need first to construct objects
+representing the single- and double-layer potential operators::
+
+    Laplace3dSingleLayerPotentialOperator<BFT, RT> slPotOp;
+    Laplace3dDoubleLayerPotentialOperator<BFT, RT> dlPotOp;
+
+Each potential operator has a function ``evaluateAtPoints`` with the following
+synopsis::
+
+    arma::Mat<ResultType> evaluateAtPoints(
+        const GridFunction<BasisFunctionType, ResultType>& argument,
+        const arma::Mat<CoordinateType>& evaluationPoints,
+        const QuadratureStrategy& quadStrategy,
+        const EvaluationOptions& options) const;
+
+This function applies the operator to the grid function ``argument`` and
+evaluates the result at points specified in the successive columns of the
+``evaluationPoints`` array. Any integrals are done according to the prescribed
+``QuadratureStrategy``, and the ``EvaluationOptions`` object can be used to
+specify the degree of parallelism.
+
+Let us suppose that we are interested in the values of :math:`u` on the annulus
+:math:`1 \leq \sqrt{x^2 + y^2} \leq 2`, :math:`z = 0`. We can construct the
+``evaluationPoints`` array in the following way::
+
+    const int rCount = 51;
+    const int thetaCount = 361;
+    const CT minTheta = 0., maxTheta = 2. * M_PI;
+    const CT minR = 1., maxR = 2.;
+    const int dimWorld = 3;
+    arma::Mat<CT> evaluationPoints(dimWorld, rCount * thetaCount);
+    for (int iTheta = 0; iTheta < thetaCount; ++iTheta) {
+        CT theta = minTheta + (maxTheta - minTheta) *
+            iTheta / (thetaCount - 1);
+        for (int iR = 0; iR < rCount; ++iR) {
+            CT r = minR + (maxR - minR) * iR / (rCount - 1);
+            evaluationPoints(0, iR + iTheta * rCount) = r * cos(theta); // x
+            evaluationPoints(1, iR + iTheta * rCount) = r * sin(theta); // y
+            evaluationPoints(2, iR + iTheta * rCount) = 0.;             // z
+        }
+    }
+
+and, after defining an ``EvaluationOptions`` object corresponding to the default
+settings via ::
+
+    EvaluationOptions evaluationOptions;
+
+we can evaluate the solution at the points from the annulus, writing ::
+
+    arma::Mat<RT> field =
+        -slPotOp.evaluateAtPoints(solFun, evaluationPoints,
+                                  quadStrategy, evaluationOptions) +
+         dlPotOp.evaluateAtPoints(dirichletData, evaluationPoints,
+                                  quadStrategy, evaluationOptions);
+
+which mirrors directly the Green's representation formula :eq:`green`. The
+result can now be written to a text file::
+
+    #include <fstream>
+    ...
+    std::ofstream out("solution.txt");
+    out << "# x y z u\n";
+    for (int i = 0; i < rCount * thetaCount; ++i)
+        out << evaluationPoints(0, i) << ' '
+            << evaluationPoints(1, i) << ' '
+            << evaluationPoints(2, i) << ' '
+            << field(0, i) << '\n';
+
+The figure below shows the plot of these data created using MATLAB.
+
+.. only:: html
+
+    .. image:: annulus.png
+
+.. only:: not html
+
+    .. image:: annulus.png
+        :width: 300pt
+
+While this result is essentially correct, a closer look reveals some artifacts
+near the boundary of the sphere (i.e. close to the inner boundary of the
+annulus). The reason is that numerical quadrature used to evaluate the
+potentials becomes less accurate for points lying close to support of the charge
+distribution. To obtain a more accurate result, one could increase the
+quadrature order by calling the ``setRelativeQuadratureOrder()`` function of the
+``singleRegular`` member of ``quadStrategy`` with a positive argument.
 
 You may have remarked that BEM++ user code can be written
 largely in the language of "continuous" operators rather than their
@@ -630,7 +730,7 @@ To export the solution to a VTK file, we write ::
     solFun = solution.gridFunction()
     solFun.exportToVtk("cell_data", "neumann_data", "solution")
 
-It remains to compare the numerical and analytical solution::
+We can also compare the numerical and analytical solution::
 
     def evalExactNeumannData(point):
         x, y, z = point
@@ -644,5 +744,77 @@ It remains to compare the numerical and analytical solution::
     relError = diff.L2Norm() / exactSolFun.L2Norm()
     print "Relative L^2 error:", relError
 
-TODO: describe how to plot the field on a cross-section plane using
-the ``visualization`` module.
+As in the C++ version, we will now calculate the solution on the annulus
+:math:`1 \leq \sqrt{x^2 + y^2} \leq 2`, :math:`z = 0`. The ``visualization``
+module included in the Python bindings will let us also *plot* the solution. We
+begin by constructing the potential operators::
+
+    slPotOp = createLaplace3dSingleLayerPotentialOperator(context)
+    dlPotOp = createLaplace3dSingleLayerPotentialOperator(context)
+
+As before, the ``context`` parameter is used to find the correct types for the
+instantiation of the underlying C++ class templates. In addition, the context
+will determine the quadrature strategy used to approximate the potential at any
+points where it will be evaluated.
+
+We use the ``mgrid`` function from NumPy to create the grid of evaluation
+points::
+
+    rCount = 51;
+    thetaCount = 361;
+    r, theta, z = np.mgrid[1:2:rCount*1j, 0:2*np.pi:thetaCount*1j, 0:0:1j]
+    x = r * np.cos(theta)
+    y = r * np.sin(theta)
+    # put the x, y and z coordinates in successive rows of a matrix
+    evaluationPoints = np.vstack((x.ravel(), y.ravel(), z.ravel()))
+
+and, after creating a default ``EvaluationOptions`` object, we apply the Green's
+representation formula :eq:`green` to evaluate the field in the annulus::
+
+    evaluationOptions = createEvaluationOptions()
+    field = (-slPotOp.evaluateAtPoints(solFun, evaluationPoints,
+                                       evaluationOptions) +
+              dlPotOp.evaluateAtPoints(dirichletData, evaluationPoints,
+                                       evaluationOptions))
+
+Let us now have a look at the results. To this end, we first import the
+``bempp.visualization`` module with ::
+
+    from bempp import visualization as vis
+
+Note that this module relies on the Mayavi package distributed by Enthought, so
+you need to have it installed for this fragment of the script to work. We now
+create an *actor* (graphical object) representing the field in the annulus,
+which we have sampled on a regular two-dimensional grid, by calling ::
+
+    annulusActor = vis.scalarDataOnRegularGridActor(
+        evaluationPoints, field, (rCount, thetaCount))
+
+To make the plot more interesting, we can also define an actor representing the
+field on the sphere, as given by the ``dirichletData`` grid function::
+
+    sphereActor = vis.gridFunctionActor(dirichletData)
+
+These two data sets represent the same physical quantity, so should logically have the same colour scale. To this end, we write ::
+
+    sphereActor.mapper.scalar_range = [-1.3, 1.3]
+    annulusActor.mapper.scalar_range = [-1.3, 1.3]
+
+and, after creating a legend via ::
+
+    legendActor = vis.legendActor(sphereActor)
+
+we finally display the plot, calling ::
+
+    vis.plotTvtkActors([annulusActor, sphereActor, legendActor])
+
+The result is shown in the figure below.
+
+.. only:: html
+
+    .. image:: python_plot.png
+
+.. only:: not html
+
+    .. image:: python_plot.png
+        :width: 300pt
