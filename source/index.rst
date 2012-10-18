@@ -36,6 +36,8 @@ The project is still in development but already usable for certain problems. The
 
 - H-matrix-based preconditioners (via AHMED).
 
+- Easy creation of operators composed of several logical blocks.
+
 - Interfaces to iterative linear solvers from Trilinos.
 
 - Evaluation of potentials in space (away from the discretized surface).
