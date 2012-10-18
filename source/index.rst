@@ -14,7 +14,8 @@ Arridge, Timo Betcke, Martin Schweiger and Wojciech Smigaj. Other project member
 
 Status
 ------
-The project is still in development but already usable for certain problems. The following features are implemented.
+1.0 is the first official version of the library. It was released on XX October
+2012. This version includes the following features:
 
 - Galerkin discretization of all standard boundary integral operators
   (single-layer potential, double-layer potential, adjoint double-layer
