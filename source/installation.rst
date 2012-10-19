@@ -134,6 +134,16 @@ To build the library, do the following:
    python_doc``. The documentation is generated in the
    ``<build_dir>/python/doc/html`` directory.
 
+7. If you use Mac OS, you need to add the ``<prefix>/bempp/lib`` directory
+   to the ``DYLD_LIBRARY_PATH`` environmental variable by running the command ::
+
+       export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:<prefix>/bempp/lib
+
+   (with ``<prefix>`` replaced with the path to the BEM++ installation
+   directory). If you wish, you can add this line to the ``.bash_profile`` file
+   in your home directory to make sure that this setting is applied each time a
+   new Terminal session is started.
+
 Usage
 -----
 
@@ -143,7 +153,7 @@ library. In particular, the ``tutorial_dirichlet.cpp`` and
 ``tutorial_dirichlet.py`` are described in detail on the BEM++ website
 (``http://www.bempp.org/tutorial_dirichlet.html``). After a successful BEM++
 installation, the compiled version of C++ examples are available in
-``<build_dir>/examples``.
+``<prefix>/examples``.
 
 To build your own programs using BEM++, you need to add the
 ``<prefix>/bempp/include`` and ``<prefix>/bempp/include/bempp`` paths to the
@@ -151,8 +161,8 @@ include path of your compiler, and link to the ``bempp`` and ``teuchos``
 libraries installed in ``<prefix>/bempp/lib`` (the latter is a component of
 Trilinos). On Linux, it is also advisable to include ``<prefix>/bempp/lib`` in
 the runtime path of your executable. On a Mac, you should add
-``<prefix>/bempp/lib`` to the ``DYLD_LIBRARY_PATH`` environment variable before
-running your program.
+``<prefix>/bempp/lib`` to the ``DYLD_LIBRARY_PATH`` environmental variable
+before running your program, as explained in the previous section.
 
 A schematic GCC invocation for compiling and linking a program ``my_program``
 with BEM++ on Linux looks as follows::
@@ -161,9 +171,7 @@ with BEM++ on Linux looks as follows::
         -o my_program -L <prefix>/bempp/lib -lbempp -lteuchos
         -Wl,-rpath,<prefix>/bempp/lib
 
-On a Mac, you would omit ``-Wl,-rpath,<prefix>/bempp/lib``, but type ``export
-DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:<prefix>/bempp/lib`` before running
-``my_program``.
+On a Mac, you can omit ``-Wl,-rpath,<prefix>/bempp/lib``.
 
 The file ``doc/misc/CMakeLists.txt.example`` contains an example ``CMakeLists``
 file that can be used to build a program employing BEM++ with CMake.
@@ -180,7 +188,22 @@ the BEM++ installation directory).
 Troubleshooting
 ---------------
 
-If you run into problems with installation or usage of BEM++, please let us know
-by opening an issue at https://github.com/bempp/bempp/issues.
+Known issues
+............
+
+**Attempt at loading the ``visualization`` Python module fails with the error message "ImportError: Could not import backend for traits"**
+
+This problem occurs with Enthought Python Distribution installed in some recent
+Linux distributions and is usually caused by a missing ``libpng.12.so.0``
+library. To confirm this diagnosis, start Python and execute ``import
+enthought.tvtk.api``. If you receive the message *ImportError: libpng.12.so.0:
+cannot open shared object file: No such file or directory*, you need to install
+the ``libpng12`` package using your distribution's package management system.
+
+Other problems
+..............
+
+If you run into other problems with installation or usage of BEM++, please let
+us know by opening an issue at https://github.com/bempp/bempp/issues.
 
                                                                -- The BEM++ Team
