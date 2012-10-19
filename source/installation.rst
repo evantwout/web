@@ -143,7 +143,7 @@ library. In particular, the ``tutorial_dirichlet.cpp`` and
 ``tutorial_dirichlet.py`` are described in detail on the BEM++ website
 (``http://www.bempp.org/tutorial_dirichlet.html``). After a successful BEM++
 installation, the compiled version of C++ examples are available in
-``<build_dir>/examples``.
+``<prefix>/examples``.
 
 To build your own programs using BEM++, you need to add the
 ``<prefix>/bempp/include`` and ``<prefix>/bempp/include/bempp`` paths to the
