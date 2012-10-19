@@ -134,6 +134,16 @@ To build the library, do the following:
    python_doc``. The documentation is generated in the
    ``<build_dir>/python/doc/html`` directory.
 
+7. If you use Mac OS, you need to add the ``<prefix>/bempp/lib`` directory
+   to the ``DYLD_LIBRARY_PATH`` environmental variable by running the command ::
+
+       export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:<prefix>/bempp/lib
+
+   (with ``<prefix>`` replaced with the path to the BEM++ installation
+   directory). If you wish, you can add this line to the ``.bash_profile`` file
+   in your home directory to make sure that this setting is applied each time a
+   new Terminal session is started.
+
 Usage
 -----
 
@@ -151,8 +161,8 @@ include path of your compiler, and link to the ``bempp`` and ``teuchos``
 libraries installed in ``<prefix>/bempp/lib`` (the latter is a component of
 Trilinos). On Linux, it is also advisable to include ``<prefix>/bempp/lib`` in
 the runtime path of your executable. On a Mac, you should add
-``<prefix>/bempp/lib`` to the ``DYLD_LIBRARY_PATH`` environment variable before
-running your program.
+``<prefix>/bempp/lib`` to the ``DYLD_LIBRARY_PATH`` environmental variable
+before running your program, as explained in the previous section.
 
 A schematic GCC invocation for compiling and linking a program ``my_program``
 with BEM++ on Linux looks as follows::
@@ -161,9 +171,7 @@ with BEM++ on Linux looks as follows::
         -o my_program -L <prefix>/bempp/lib -lbempp -lteuchos
         -Wl,-rpath,<prefix>/bempp/lib
 
-On a Mac, you would omit ``-Wl,-rpath,<prefix>/bempp/lib``, but type ``export
-DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:<prefix>/bempp/lib`` before running
-``my_program``.
+On a Mac, you can omit ``-Wl,-rpath,<prefix>/bempp/lib``.
 
 The file ``doc/misc/CMakeLists.txt.example`` contains an example ``CMakeLists``
 file that can be used to build a program employing BEM++ with CMake.
