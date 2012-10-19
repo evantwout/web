@@ -180,7 +180,22 @@ the BEM++ installation directory).
 Troubleshooting
 ---------------
 
-If you run into problems with installation or usage of BEM++, please let us know
-by opening an issue at https://github.com/bempp/bempp/issues.
+Known issues
+............
+
+**Attempt at loading the ``visualization`` Python module fails with the error message "ImportError: Could not import backend for traits"**
+
+This problem occurs with Enthought Python Distribution installed in some recent
+Linux distributions and is usually caused by a missing ``libpng.12.so.0``
+library. To confirm this diagnosis, start Python and execute ``import
+enthought.tvtk.api``. If you receive the message *ImportError: libpng.12.so.0:
+cannot open shared object file: No such file or directory*, you need to install
+the ``libpng12`` package using your distribution's package management system.
+
+Other problems
+..............
+
+If you run into other problems with installation or usage of BEM++, please let
+us know by opening an issue at https://github.com/bempp/bempp/issues.
 
                                                                -- The BEM++ Team
