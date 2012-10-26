@@ -14,7 +14,7 @@ Arridge, Timo Betcke, Martin Schweiger and Wojciech Smigaj. Other project member
 
 Status
 ------
-1.0 is the first official version of the library. It was released on XX October
+1.0 is the first official version of the library, released on 29 October
 2012. This version includes the following features:
 
 - Galerkin discretization of all standard boundary integral operators
