@@ -4,8 +4,14 @@ Installation
 Obtaining the code
 ------------------
 
-The code is available from https://github.com/bempp/bempp. To check it
-out, use ``git clone git://github.com/bempp/bempp.git``.
+The code is available from https://github.com/bempp/bempp.
+
+To download the code, you need to have the Git version control system
+(`<http://git-scm.com>`_) installed. To get the (stable) version 1.0
+of the library, execute ``git clone -b release_1.0
+git://github.com/bempp/bempp.git`` from the command line in an empty
+directory. To download the current development version, execute ``git
+clone git://github.com/bempp/bempp.git`` instead.
 
 Installation
 ------------
@@ -143,6 +149,17 @@ To build the library, do the following:
    directory). If you wish, you can add this line to the ``.bash_profile`` file
    in your home directory to make sure that this setting is applied each time a
    new Terminal session is started.
+
+Updates
+-------
+
+Bugfixes to the stable version of BEM++ will be committed to the release_1.0
+git branch. You can obtain the latest bugfixes by executing ::
+
+   python bempp_setup.py -u all bempp_setup.cfg
+
+in BEM++ source directory. This will check whether any updates are available,
+and if yes, download them, recompile and install the library.
 
 Usage
 -----
