@@ -12,10 +12,20 @@ London (UCL), the University of Reading and the University of
 Durham. The main coding team is located at UCL and consists of Simon
 Arridge, Timo Betcke, Martin Schweiger and Wojciech Smigaj. Other project members include Stephen Langdon (Reading), Douglas Saddy (Reading), and Jon Trevelyan (Durham).
 
-Status
-------
-1.0 is the first official version of the library, released on 29 October
-2012. This version includes the following features:
+News
+----
+
+3 November 2012: released version 1.0.1
+.......................................
+
+This is a maintenance release correcting two bugs in the AHMED interface
+and improving the update procedure.
+
+29 October 2012: released version 1.0.0
+.......................................
+
+This is the first official release of the library, including the
+following features:
 
 - Galerkin discretization of all standard boundary integral operators
   (single-layer potential, double-layer potential, adjoint double-layer
