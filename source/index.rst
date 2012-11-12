@@ -15,6 +15,13 @@ Arridge, Timo Betcke, Martin Schweiger and Wojciech Smigaj. Other project member
 News
 ----
 
+12 November 2012: released version 1.0.2
+........................................
+
+A maintenance release fixing a few minor bugs in BEM++. It contains a workaround
+for a suspected compiler bug in llvm-gcc on MacOS X 10.7 in 64-bit mode and
+adds support for GCC 4.7.
+
 3 November 2012: released version 1.0.1
 .......................................
 
