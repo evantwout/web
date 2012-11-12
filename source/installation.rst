@@ -217,6 +217,15 @@ enthought.tvtk.api``. If you receive the message *ImportError: libpng.12.so.0:
 cannot open shared object file: No such file or directory*, you need to install
 the ``libpng12`` package using your distribution's package management system.
 
+**Single-precision calculations on MacOS X 10.7 using the Accelerate framework give erroneous results**
+
+This problem occurs because the interface of the ``sdot()`` function from
+Accelerate is incompatible with AHMED: the function returns a double-precision
+number, whereas AHMED expects a single-precision result. Until this problem is
+fixed, you can either do calculations in double precision or switch to a
+different BLAS implementation (e.g. MKL). Please contact us if these workarounds
+are not feasible for you.
+
 Other problems
 ..............
 
