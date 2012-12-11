@@ -101,8 +101,9 @@ Note that the :math:`H^{-\frac{1}{2}}(\Gamma)`-ellipticity of
 
 We will now present the C++ and Python versions of a program using
 BEM++ to solve :eq:`steklov` for the Neumann trace and, subsequently,
-the Green's representation formula :eq:`green` to evaluate the field
-:math:`u` on a cross-section of the exterior domain :math:`\Omega^{\text{c}}`.
+to evaluate the field :math:`u` on a cross-section of the exterior
+domain :math:`\Omega^{\text{c}}` by means of the Green's
+representation formula :eq:`green` .
 
 Implementation in C++
 ---------------------
