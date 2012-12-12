@@ -15,6 +15,15 @@ Arridge, Timo Betcke, Martin Schweiger and Wojciech Śmigaj. Other project membe
 News
 ----
 
+12 December 2012: New BEM++ preprint
+........................................
+
+The preprint  `Solving boundary integral problems with BEM++
+<http://www.bempp.org/files/bempp-toms-preprint.pdf>`_ is now
+available. It describes the design of BEM++ and discusses several
+example applications.
+
+
 11 December 2012: released version 1.1.0
 ........................................
 
