@@ -7,11 +7,14 @@ Obtaining the code
 The code is available from https://github.com/bempp/bempp.
 
 To download the code, you need to have the Git version control system
-(`<http://git-scm.com>`_) installed. To get the (stable) version 1.0
-of the library, execute ``git clone -b release_1.0
-git://github.com/bempp/bempp.git`` from the command line in an empty
-directory. To download the current development version, execute ``git
-clone git://github.com/bempp/bempp.git`` instead.
+(`<http://git-scm.com>`_) installed. To get the (stable) version 1.1
+of the library, execute ::
+
+    git clone -b release_1.1 git://github.com/bempp/bempp.git
+
+from the command line in an empty directory. To download the current development
+version, run ``git clone git://github.com/bempp/bempp.git`` instead. (Note
+that the development version is by definition less stable and less well tested.)
 
 Installation
 ------------
