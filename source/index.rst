@@ -10,7 +10,7 @@ BEM++ is a project to develop a modern open source C++ boundary
 element library. It is a joint project between University College
 London (UCL), the University of Reading and the University of
 Durham. The main coding team is located at UCL and consists of Simon
-Arridge, Timo Betcke, Martin Schweiger and Wojciech Smigaj. Other project members include Stephen Langdon (Reading), Douglas Saddy (Reading), and Jon Trevelyan (Durham).
+Arridge, Timo Betcke, Martin Schweiger and Wojciech Śmigaj. Other project members include Stephen Langdon (Reading), Douglas Saddy (Reading), and Jon Trevelyan (Durham).
 
 News
 ----
@@ -134,10 +134,14 @@ Documentation
    C++ interface reference (version 1.0) <http://www.bempp.org/cppref/1.0/index.html>
    Python interface reference (version (1.0) <http://www.bempp.org/pythonref/1.0/index.html>
 
+Publications
+------------
+
+W. Śmigaj, S. Arridge, T. Betcke, J. Phillips, M. Schweiger, "Solving Boundary Integral Problems with BEM++", submitted to *ACM Trans. Math. Software* (`preprint <http://www.bempp.org/files/bempp-toms-preprint.pdf>`_).
+
 Acknowledgements
 ----------------
 The project was made possible by EPSRC Grant EP/I030042/1, which started 01 October 2011 and provides initial funding for two years. Special thanks go also to the members of the `HyENA <http://portal.tugraz.at/portal/page/portal/Files/i2610/files/Forschung/Software/HyENA/html/index.html>`_ Team at TU Graz who gave us permission to use their Galerkin integration routines for BEM++.
-
 
 Licensing
 ---------
