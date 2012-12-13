@@ -2,26 +2,38 @@
 .. _mathematics_background:
 
 A brief introduction to the mathematics of Galerkin boundary element methods
-===================================================
+==================================================================================
 
 In this section we will give a brief informal and not fully rigorous overview of some of the concepts of boundary integral equations.
 For a complete presentation of the theory of boundary integral equation see e.g. [Steinbach]_.
 
 
 Boundary Integral Operators and the Calderon Projector
-----------------------------------------------
+-------------------------------------------------------------------------------------------------------
 
-Let :math:`\Omega\subset\mathbb{R}^3` be a bounded Lipschitz domain. We want to solve the elliptic PDE
+Let :math:`\Omega\subset\mathbb{R}^3` be a bounded Lipschitz domain and let :math:`\Omega^c:=\mathbb{R}^3\backslash\overline{\Omega}` be its complement.
+
+We consider the interior problem
 
 .. math::
 
-    Lu(x) = 0,~x\in\Omega,
+    Lu^{int}(x) = 0,~x\in\Omega,
+
+and the exterior problem
+
+.. math::
+
+   Lu^{ext}(x) = 0,~x\in\Omega^c,
 
 where :math:`L` is an elliptic partial differential operator. Examples are the Laplace equation :math:`L=-\Delta` or the Helmholtz equation :math:`L=-\Delta u-k^2`.
 
-We denote by :math:`v:=\gamma_0^{int}u` the trace (i.e. the boundary values) of the solution :math:`u` on :math:`\Gamma`, and by :math:`t:=\gamma_1^{int}u` the conormal derivative of :math:`u`. For the Laplace and the Helmholtz equation the conormal derivative is identical to the normal derivative :math:`\frac{\partial u}{\partial n}`. By convention we assume that the normal direction :math:`n` points towards the exterior of :math:`\Omega`.
+We denote by :math:`v^{int}:=\gamma_0^{int}u^{int}` the trace (i.e. the boundary values) of the interior solution :math:`u^{int}` on :math:`\Gamma`, and by :math:`t^{int}:=\gamma_1^{int}u^{int}` the conormal derivative of :math:`u^{int}`.  Correspondingly, we also define :math:`v^{ext}:=\gamma_0^{ext}u^{ext}` and :math:`t^{ext}:=\gamma_1^{ext}u^{ext}`.
 
-For the following we need to define the single-layer potential operator :math:`\mathcal{V}` and the double-layer potential operator :math:`\mathcal{K}` by
+For the Laplace and the Helmholtz equation the conormal derivative is identical to the normal derivative. By convention we assume that the normal direction :math:`n` points towards the exterior of :math:`\Omega` for both, the interior and exterior problem.
+
+In the following we focus on the interior problem, and then remark what differs for the exterior problem.
+
+We define the single-layer potential operator :math:`\mathcal{V}` and the double-layer potential operator :math:`\mathcal{K}` by
 
 .. math::
 
@@ -40,32 +52,37 @@ and for the Helmholtz equation as
   g(x,y)=\frac{1}{4\pi}\frac{e^{ik|x-y|}}{|x-y|}.
 
 
-With the help of Green's representation theorem we can now represent the solution :math:`u` in terms of :math:`v` and :math:`t` as
+With the help of Green's representation theorem we can now represent the solution :math:`u^{int}` in terms of :math:`v^{int}` and :math:`t^{int}` as
 
-.. math:: u = \mathcal{V}t-\mathcal{K}u.
+.. math:: u^{int} = \mathcal{V}t^{int}-\mathcal{K}v^{int}.
        :label: green
+
+For the exterior problem Green's representation theorem takes the form
+
+.. math:: u^{ext} = \mathcal{K}v^{ext}-\mathcal{V}t^{ext}
+       :label: green2
 
 By applying the trace and the conormal derivative operator to :eq:`green` we obtain the following two equations:
 
-.. math:: v  =  \gamma_0^{int}\left[\mathcal{V}t\right]-\gamma_0^{int}\left[\mathcal{K}u\right], 
+.. math:: v^{int}  =  \gamma_0^{int}\left[\mathcal{V}t^{int}\right]-\gamma_0^{int}\left[\mathcal{K}v^{int}\right], 
      :label: calderon11
-.. math:: t  =  \gamma_1^{int}\left[\mathcal{V}t\right]-\gamma_1^{int}\left[\mathcal{K}u\right]. 
+.. math:: t^{int}  =  \gamma_1^{int}\left[\mathcal{V}t^{int}\right]-\gamma_1^{int}\left[\mathcal{K}v^{int}\right]. 
      :label: calderon12
 
 We can write this in matrix form as
 
 .. math:: \begin{bmatrix}
-      v \\ t
+      v^{int} \\ t^{int}
    \end{bmatrix}
    =
    \begin{bmatrix}
    -\gamma_0^{int}\mathcal{K} & \gamma_0^{int}\mathcal{V}    \\
    -\gamma_1^{int}\mathcal{K} & \gamma_1^{int}\mathcal{V}
    \end{bmatrix}   
-   = \begin{bmatrix} v \\ t\end{bmatrix} 
+   = \begin{bmatrix} v^{int} \\ t^{int}\end{bmatrix} 
   :label: calderon1
 
-This representation is known as Calderon projection. It connects the Dirichlet data :math:`v` and the Neumann data :math:`t` with each other, and can be used to derive various integral equation formulations. However, before we proceed to specific formulations we need to evaluate the representations for the traces and conormal derivatives of :math:`\mathcal{V}` and :math:`\mathcal{K}`.
+This representation is known as Calderon projection. It connects the Dirichlet data :math:`v^{int}` and the Neumann data :math:`t^{int}` with each other, and can be used to derive various integral equation formulations. However, before we proceed to specific formulations we need to evaluate the representations for the traces and conormal derivatives of :math:`\mathcal{V}` and :math:`\mathcal{K}`.
 
 We define the following boundary potential operators
 
@@ -97,17 +114,17 @@ Note that the term :math:`\frac{1}{2}I` comes from the jump relationship of the 
 Returning to the definition of the Calderon projector in :eq:`calderon1` we obtain
 
 .. math:: \begin{bmatrix}
-      v \\ t
+      v^{int} \\ t^{int}
      \end{bmatrix}
      =
      \begin{bmatrix}
      \frac{1}{2}I-K & V   \\
      D & \frac{1}{2}I+T 
      \end{bmatrix}   
-     = \begin{bmatrix} v \\ t\end{bmatrix}.
+     = \begin{bmatrix} v^{int} \\ t^{int}\end{bmatrix}.
   :label: calderon2
 
-If we want to solve an exterior problem, that is instead of :math:`\Omega` we consider the complement :math:`\Omega^{c}:=\mathbb{R}^3\backslash\overline{\Omega}` then the Calderon projection takes the following form
+For the exterior problem the Calderon projection takes the form
 
 .. math:: \begin{bmatrix}
       v^{ext} \\ t^{ext}
@@ -117,12 +134,11 @@ If we want to solve an exterior problem, that is instead of :math:`\Omega` we co
      \frac{1}{2}I+K & -V   \\
      -D & \frac{1}{2}I-T 
      \end{bmatrix}   
-     = \begin{bmatrix} v^{ext} \\ t^{ext}\end{bmatrix},
+     = \begin{bmatrix} v^{ext} \\ t^{ext}\end{bmatrix}.
   :label: calderon2
-where we now have to consider :math:`v^{ext}` and :math:`t^{ext}` as Dirichlet and Neumann data taken with respect to the exterior problem. However, the convention is that the normal directions still point to the exterior of :math:`\Omega`, that is into :math:`\Omega^c`.
 
 
-We close this section with a brief review of mapping properties of these operators. This will be important for the choice of discretization bases in Galerkin boundary element methods.
+We close this section with a brief review of mapping properties of boundary potential operators. This will be important for the choice of discretization bases in Galerkin boundary element methods.
 
 We denote by :math:`H^s(\Gamma)` the Sobolev space of order :math:`s` on :math:`\Gamma`. Then the above defined operators satisfy the following mapping properties.
 
@@ -137,7 +153,7 @@ We denote by :math:`H^s(\Gamma)` the Sobolev space of order :math:`s` on :math:`
 As an intuitive explanation of these spaces consider that the space :math:`H^{0}(\Gamma)` is identical to the space :math:`L^2(\Gamma)` of square integrable functions defined on :math:`\Gamma`. The space :math:`H^{1/2}(\Gamma)` is the correct space to represent the Dirichlet traces :math:`v` of the solution :math:`u` to the elliptic PDE :math:`Lu=0` in :math:`\Omega`, and the space :math:`H^{-1/2}(\Gamma)` is the natural space to represent the conormal derivatives :math:`t`. It follows that the Calderon projection acts on pairs of functions in the product space :math:`H^{1/2}(\Gamma)\times H^{-1/2}(\Gamma)`.
 
 Boundary element spaces
-----------------------
+--------------------------------------------------------------------------------------------------
 
 To discretise the Sobolev spaces :math:`H^{-\frac12}(\Gamma)` and :math:`H^{\frac12}(\Gamma)` we introduce the triangulation :math:`\mathcal{T}_h` of :math:`\Gamma` with triangular surface elements :math:`\tau_\ell` and associated nodes :math:`x_i` such that
 :math:`\overline{\mathcal{T}_h}=\bigcup_\ell\overline{\tau_\ell}`. Here, :math:`h` denotes the mesh size. We define two spaces of functions.
@@ -148,11 +164,11 @@ To discretise the Sobolev spaces :math:`H^{-\frac12}(\Gamma)` and :math:`H^{\fra
 We will use the space :math:`S_h^{0}` to approximate functions in :math:`H^{-1/2}(\Gamma)` and the space :math:`S_h^{1}` to approximate functions in :math:`H^{1/2}(\Gamma)`.
 
 Galerkin approximations
-----------------------
+----------------------------------------------------------------------------------------------------
 
-As example we consider the interior Dirichlet problems, that is the Dirichlet data :math:`v` is given and we want to approximate the Neumann data :math:`t`. The first line of the Calderon projection :eq:`calderon2` leads to the formulation
+As example we consider the interior Dirichlet problems, that is the Dirichlet data :math:`v^{int}` is given and we want to approximate the Neumann data :math:`t^{int}`. The first line of the Calderon projection :eq:`calderon2` leads to the formulation
 
-.. math:: Vt = \left(\frac{1}{2}I+K\right)v.
+.. math:: Vt^{int} = \left(\frac{1}{2}I+K\right)v^{int}.
     :label: dirichlet
 
 .. math:: \langle f, g \rangle = \int_\Gamma \overline{f}(x)g(x)ds(x).
@@ -164,14 +180,14 @@ Both sides of :eq:`dirichlet` map into :math:`H^{1/2}(\Gamma)`. We therefore tak
 
 Find :math:`t\in H^{-1/2}(\Gamma)` such that
 
-.. math:: \langle \psi,Vt \rangle = \langle \psi ,\left(\frac{1}{2}I+K\right)v\rangle
+.. math:: \langle \psi,Vt^{int} \rangle = \langle \psi ,\left(\frac{1}{2}I+K\right)v^{int}\rangle
      :label: vardirichlet
 
 for all :math:`\psi\in H^{-1/2}(\Gamma)`.
 
 The Galerkin discretization is now obtained by restricting the space :math:`H^{1/2}(\Gamma)` to :math:`S_h^{1}(\Gamma)` and the space :math:`H^{-1/2}(\Gamma)` to :math:`S_h^{0}(\Gamma)` in the above variational formulation. We obtain the following matrix problem
 
-.. math:: \mathsf{V}\mathbf{t} = \left(\mathsf{\frac{1}{2}M+K}\right)\mathbf{v},
+.. math:: \mathsf{V}\mathbf{t}^{int} = \left(\mathsf{\frac{1}{2}M+K}\right)\mathbf{v}^{int},
 
 where the matrices are defined by
 

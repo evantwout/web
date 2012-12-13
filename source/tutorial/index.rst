@@ -11,4 +11,5 @@ application examples.
 
 
 *  :ref:`mathematics_background`
+*  :ref:`interior_laplace_dirichlet`
 
