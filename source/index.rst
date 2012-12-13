@@ -18,10 +18,11 @@ News
 12 December 2012: New BEM++ preprint
 ........................................
 
-The preprint  `Solving boundary integral problems with BEM++
-<http://www.bempp.org/files/bempp-toms-preprint.pdf>`_ is now
-available. It describes the design of BEM++ and discusses several
-example applications.
+The preprint `Solving boundary integral problems with BEM++
+<http://www.bempp.org/files/bempp-toms-preprint.pdf>`_ is now available together
+with the accompanying `example scripts
+<http://www.bempp.org/files/bempp-toms-examples.zip>`_. It describes the design
+of BEM++ and discusses several example applications.
 
 
 11 December 2012: released version 1.1.0
@@ -146,7 +147,10 @@ Documentation
 Publications
 ------------
 
-W. Śmigaj, S. Arridge, T. Betcke, J. Phillips, M. Schweiger, "Solving Boundary Integral Problems with BEM++", submitted to *ACM Trans. Math. Software* (`preprint <http://www.bempp.org/files/bempp-toms-preprint.pdf>`_).
+W. Śmigaj, S. Arridge, T. Betcke, J. Phillips, M. Schweiger, "Solving Boundary
+Integral Problems with BEM++", submitted to *ACM Trans. Math. Software*
+(`preprint <http://www.bempp.org/files/bempp-toms-preprint.pdf>`_, `example
+scripts <http://www.bempp.org/files/bempp-toms-examples.zip>`_).
 
 Acknowledgements
 ----------------
