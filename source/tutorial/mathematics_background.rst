@@ -152,6 +152,8 @@ We denote by :math:`H^s(\Gamma)` the Sobolev space of order :math:`s` on :math:`
 
 As an intuitive explanation of these spaces consider that the space :math:`H^{0}(\Gamma)` is identical to the space :math:`L^2(\Gamma)` of square integrable functions defined on :math:`\Gamma`. The space :math:`H^{1/2}(\Gamma)` is the correct space to represent the Dirichlet traces :math:`v` of the solution :math:`u` to the elliptic PDE :math:`Lu=0` in :math:`\Omega`, and the space :math:`H^{-1/2}(\Gamma)` is the natural space to represent the conormal derivatives :math:`t`. It follows that the Calderon projection acts on pairs of functions in the product space :math:`H^{1/2}(\Gamma)\times H^{-1/2}(\Gamma)`.
 
+.. _bem_spaces:
+
 Boundary element spaces
 --------------------------------------------------------------------------------------------------
 
@@ -162,6 +164,8 @@ To discretise the Sobolev spaces :math:`H^{-\frac12}(\Gamma)` and :math:`H^{\fra
 * The space of *continuous piecewise linear functions* :math:`S_h^1(\Gamma):=\text{span}\{\phi_j^{(1)}\}` with :math:`\phi_j^{(1)}(x_i)=\left\{\begin{array}{cc} 1 & i=j\\ 0 & i\neq j\end{array}\right.`.
 
 We will use the space :math:`S_h^{0}` to approximate functions in :math:`H^{-1/2}(\Gamma)` and the space :math:`S_h^{1}` to approximate functions in :math:`H^{1/2}(\Gamma)`.
+
+.. _galerkin_approximations:
 
 Galerkin approximations
 ----------------------------------------------------------------------------------------------------
@@ -193,7 +197,7 @@ where the matrices are defined by
 
 .. math::
     \begin{align*}
-       \mathsf{V}_{i,j} &= \int_\Gamma\psi_i^{(0)}(x)\int_\Gamma g(x,y)\,\phi_j^{(0)}(y)ds(y)ds(x),\\
+       \mathsf{V}_{i,j} &= \int_\Gamma\psi_i^{(0)}(x)\int_\Gamma g(x,y)\,\psi_j^{(0)}(y)ds(y)ds(x),\\
        \mathsf{M}_{i,j} &= \int_\Gamma\psi_i^{(0)}(x)\,\phi_j^{(1)}(x)ds(x),\\
       \mathsf{K}_{i,j} &= \int_\Gamma\psi_i^{(0)}(x)\int_\Gamma g(x,y)\,\phi_j^{(1)}(y)ds(y)ds(x).
     \end{align*}
