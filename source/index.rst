@@ -15,6 +15,12 @@ Arridge, Timo Betcke, Martin Schweiger and Wojciech Śmigaj. Other project membe
 News
 ----
 
+7 January 2013: released version 1.1.1
+......................................
+
+A maintenance release fixing problems encountered during compilation without
+AHMED.
+
 12 December 2012: New BEM++ preprint
 ........................................
 
