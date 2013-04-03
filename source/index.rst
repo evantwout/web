@@ -151,7 +151,8 @@ Documentation
    :maxdepth: 1
 
    Installation <installation>
-   Tutorial <tutorial_dirichlet>
+   Tutorial: exterior Dirichlet problem for the Laplace equation <tutorial_dirichlet>
+   Tutorial: adding custom operators <tutorial_custom_ops>
    C++ interface reference (version 1.1) <http://www.bempp.org/cppref/1.1/index.html>
    Python interface reference (version (1.1) <http://www.bempp.org/pythonref/1.1/index.html>
    C++ interface reference (version 1.0) <http://www.bempp.org/cppref/1.0/index.html>
