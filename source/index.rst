@@ -15,6 +15,13 @@ Arridge, Timo Betcke, Martin Schweiger and Wojciech Śmigaj. Other project membe
 News
 ----
 
+28 January 2013: released version 1.1.2
+.......................................
+
+A maintenance release improving the detection of the G77 linking convention on
+32-bit systems.
+
+
 7 January 2013: released version 1.1.1
 ......................................
 
