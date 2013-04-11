@@ -243,8 +243,8 @@ We then include the ``bempp.swg`` interface file provided by BEM++::
     %include "bempp.swg"
 
 Due to a deficiency in this file, it is currently necessary to include
-a header file from the DUNE library beforehand. This will be removed
-in the next version of BEM++.
+a header file from the DUNE library beforehand, as shown above.
+This will be corrected in the next version of BEM++.
 
 The ``bempp.swg`` file makes information about the elements of BEM++ wrapped in the library's
 Python interface available to SWIG as it processes our new interface file. In
@@ -360,7 +360,7 @@ Custom combined-potential operator:
 \
 
 Closing remarks
-===============
+---------------
 
 For more complicated operators it may be necessary to develop custom
 functors evaluating weak-form integrands or basis function
@@ -373,7 +373,7 @@ operators and come across problems, please open an issue on the GitHub page
 of BEM++---we'll be happy to help.
 
 Source code
-===========
+-----------
 
 The complete source code for this tutorial can be downloaded from
 `here <files/tutorial_custom_ops_files.zip>`_

@@ -15,6 +15,11 @@ Arridge, Timo Betcke, Martin Schweiger and Wojciech Śmigaj. Other project membe
 News
 ----
 
+11 April 2013: new tutorial
+...........................
+
+New `tutorial <tutorial_custom_ops.html>`_ on extending BEM++ with custom operators.
+
 28 January 2013: released version 1.1.2
 .......................................
 
