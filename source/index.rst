@@ -15,6 +15,16 @@ Arridge, Timo Betcke, Martin Schweiger and Wojciech Śmigaj. Other project membe
 News
 ----
 
+10 May 2013: released version 1.1.3
+.......................................
+
+This version adds support for the new version of Enthought Python Distribution,
+`Canopy <https://www.enthought.com/products/canopy>`_. See the `installation
+instructions <installation.html>`_ for more information about installing BEM++
+with Canopy. At the time of writing, the Mac version of Canopy seems to be more
+stable than the Linux version. Linux users might consider using the older EPD
+7.3 version for the time being.
+
 11 April 2013: new tutorial
 ...........................
 
