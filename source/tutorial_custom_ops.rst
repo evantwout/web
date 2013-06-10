@@ -235,16 +235,17 @@ declaration of ``helmholtz3dCombinedBoundaryOperator()``::
     #include "helmholtz_3d_combined_boundary_operator.hpp"
     %}
 
-We then include the ``bempp.swg`` interface file provided by BEM++::
+We then need to include the ``bempp.swg`` interface file provided by
+BEM++. With BEM++ version 1.1.4 or above, it suffices to write::
+
+    %include "bempp.swg"
+
+With earlier versions of BEM++, due to a deficiency in ``bempp.swg`` it
+is necessary to precede the above line with::
 
     %{ // temporarily necessary due to a deficiency in bempp.swg
         #include <dune/common/exceptions.hh>
     %}
-    %include "bempp.swg"
-
-Due to a deficiency in this file, it is currently necessary to include
-a header file from the DUNE library beforehand, as shown above.
-This will be corrected in the next version of BEM++.
 
 The ``bempp.swg`` file makes information about the elements of BEM++ wrapped in the library's
 Python interface available to SWIG as it processes our new interface file. In
