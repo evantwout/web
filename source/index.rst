@@ -52,6 +52,18 @@ Features
 News
 ----
 
+13 June 2013: new version of AHMED
+..................................
+
+.. warning:: It has been brought to our attention that the mode
+     of distribution of AHMED has changed -- to obtain it, one needs
+     now to clone a Git repository rather than to download a tar.gz
+     file. We have seen reports that BEM++ does not compile
+     successfully against the version of AHMED available from the Git
+     repository. We do not yet have access to the new AHMED
+     repository; as soon as we get it, we will investigate the problem
+     and update BEM++ to cooperate with the new version of AHMED.
+
 10 June 2013: released version 1.1.4
 ........................................
 
