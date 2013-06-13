@@ -35,6 +35,16 @@ To build and install the library, you need
 - (optional) sources of the AHMED library for H-matrix calculations; you can
   download them from `<http://bebendorf.ins.uni-bonn.de/AHMED.html>`_.
 
+  .. warning:: (Added 13 June 2013) It has been brought to our
+     attention that the mode of distribution of AHMED has changed --
+     to obtain it, one needs now to clone a Git repository rather than
+     to download a tar.gz file. We have seen reports that BEM++ does
+     not compile successfully against the version of AHMED available
+     from the Git repository. We do not yet have access to the new
+     AHMED repository; as soon as we get it, we will investigate the
+     problem and update BEM++ to cooperate with the new version of
+     AHMED.
+
 - (optional) the Python Mayavi module, if you want to use the visualization
   features from the Python interface to BEM++.
 
@@ -270,7 +280,7 @@ installation tree) and then run the BEM++ installer again.
 "ImportError: Matplotlib backend_wx and backend_wxagg require wxPython >=2.8"**
 
 Sometimes this problem can be solved by installing a ``libjpeg.so.62`` library,
-as advised `here
+as advised `on this page
 <https://support.enthought.com/entries/22096567-Ubuntu-IPython-pylab-not-working>`_. If
 this does not help, configure Matplotlib to use a different backend than the
 default WXAgg, for instance Qt4Agg or TkAgg, by adding a line such as ``backend
