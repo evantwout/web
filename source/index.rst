@@ -115,8 +115,29 @@ scripts <http://www.bempp.org/files/bempp-toms-examples.zip>`_).
 
 Acknowledgements
 ----------------
+
 The project was made possible by EPSRC Grant EP/I030042/1, which
-started on 1 October 2011 and provides initial funding for two years. Special thanks go also to the members of the `HyENA <http://portal.tugraz.at/portal/page/portal/Files/i2610/files/Forschung/Software/HyENA/html/index.html>`_ Team at TU Graz who gave us permission to use their Galerkin integration routines for BEM++.
+started on 1 October 2011 and provides initial funding for two
+years. Special thanks go also to the members of the `HyENA
+<http://portal.tugraz.at/portal/page/portal/Files/i2610/files/Forschung/Software/HyENA/html/index.html>`_
+Team at TU Graz who gave us permission to use their Galerkin
+integration routines for BEM++. We would also like to thank Mario
+Bebendorf and the developers of DUNE for many useful discussions.
+
+BEM++ uses a number of external libraries, some of which are
+automatically downloaded by its installer:
+
+- `AHMED <http://bebendorf.ins.uni-bonn.de/AHMED.html>`_
+- `Armadillo <http://arma.sourceforge.net>`_
+- `Boost <http://www.boost.org>`_
+- `DUNE <http://www.dune-project.org>`_
+- `Intel Threading Building Blocks <http://threadingbuildingblocks.org>`_
+- `Mayavi <http://code.enthought.com/projects/mayavi>`_
+- `SWIG <http://www.swig.org>`_
+- `Trilinos <http://trilinos.sandia.gov>`_
+
+We are grateful to the authors of all
+these packages for making their work publicly available.
 
 Licensing
 ---------
