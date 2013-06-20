@@ -19,8 +19,8 @@ Features
 
 - Galerkin discretization of all standard boundary integral operators
   (single-layer potential, double-layer potential, adjoint double-layer
-  potential, hypersingular operator) for Laplace, Helmholtz and modified
-  Helmholtz problems in three dimensions.
+  potential, hypersingular operator) for Laplace, Helmholtz, modified
+  Helmholtz and Maxwell problems in three dimensions.
 
 - Numerical evaluation of boundary-element integrals (singular integrals dealt
   with using Sauter-Schwab quadrature rules).
@@ -51,6 +51,20 @@ Features
 
 News
 ----
+
+20 June 2013: released version 1.9.0
+
+This is a preview (beta) of the upcoming BEM++ 2.0. It provides the following new features:
+
+- Solution of Maxwell equations.
+
+- More robust ACA assembly of operators containing zero or small-magnitude subblocks stemming from flat or nearly flat parts of surfaces (e.g. the double-layer potential boundary operator).
+
+- New, faster methods of ACA assembly of integral operators (especially hypersingular operators). See the documentation of AcaOptions::mode for more information.
+
+- ACA-accelerated evaluation of potentials in space. See the documentation of EvaluationOptions::switchToAcaMode for more information.
+
+- New ``visualization2`` module for interactive visualization of calculation results in Python. Based on the Mayavi library, this module makes it possible to change plot properties (e.g.\ colour schemes, colour scales) using a GUI. Note that the old ``visualization`` module is still supported.
 
 13 June 2013: new version of AHMED
 ..................................
@@ -98,6 +112,8 @@ Documentation
    Installation <installation>
    Tutorial: exterior Dirichlet problem for the Laplace equation <tutorial_dirichlet>
    Tutorial: adding custom operators <tutorial_custom_ops>
+   C++ interface reference (version 1.9) <http://www.bempp.org/cppref/1.9/index.html>
+   Python interface reference (version 1.9) <http://www.bempp.org/pythonref/1.9/index.html>
    C++ interface reference (version 1.1) <http://www.bempp.org/cppref/1.1/index.html>
    Python interface reference (version 1.1) <http://www.bempp.org/pythonref/1.1/index.html>
    C++ interface reference (version 1.0) <http://www.bempp.org/cppref/1.0/index.html>
