@@ -1,6 +1,36 @@
 News archive
 ====
 
+21 June 2013: released version 1.9.0
+....................................
+
+This is a preview (beta) of the upcoming BEM++ 2.0. It provides the following
+new features:
+
+- Solution of Maxwell equations. See the documentation of the Maxwell module for
+  more information about the available operators, and the
+  ``maxwell_scattering_diel.py``, ``maxwell_scattering_pec.py`` and
+  ``maxwell_diffraction_by_plate.py`` scripts for usage examples.
+
+- More robust ACA assembly of operators containing zero or small-magnitude
+  subblocks stemming from flat or nearly flat parts of surfaces (e.g. the
+  double-layer potential boundary operator).
+
+- New, faster methods of ACA assembly of integral operators (especially
+  hypersingular operators). See the documentation of AcaOptions::mode for more
+  information.
+
+- ACA-accelerated evaluation of potentials in space. See the documentation of
+  EvaluationOptions::switchToAcaMode for more information.
+
+- New ``visualization2`` module for interactive visualization of calculation
+  results in Python. Based on the Mayavi library, this module makes it possible
+  to change plot properties (e.g. colour schemes, colour scales) using a
+  GUI. Note that the old ``visualization`` module is still supported.
+
+- The versions of some libraries downloaded by the BEM++ installer
+  (specifically, DUNE and Trilinos) have been updated.
+
 10 June 2013: released version 1.1.4
 ........................................
 

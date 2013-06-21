@@ -52,34 +52,38 @@ Features
 News
 ----
 
-20 June 2013: released version 1.9.0
+21 June 2013: released version 1.9.0
+....................................
 
-This is a preview (beta) of the upcoming BEM++ 2.0. It provides the following new features:
+This is a preview (beta) of the upcoming BEM++ 2.0. It provides the following
+new features:
 
-- Solution of Maxwell equations.
+- Solution of Maxwell equations. See the documentation of the Maxwell module for
+  more information about the available operators, and the
+  ``maxwell_scattering_diel.py``, ``maxwell_scattering_pec.py`` and
+  ``maxwell_diffraction_by_plate.py`` scripts for usage examples.
 
-- More robust ACA assembly of operators containing zero or small-magnitude subblocks stemming from flat or nearly flat parts of surfaces (e.g. the double-layer potential boundary operator).
+- More robust ACA assembly of operators containing zero or small-magnitude
+  subblocks stemming from flat or nearly flat parts of surfaces (e.g. the
+  double-layer potential boundary operator).
 
-- New, faster methods of ACA assembly of integral operators (especially hypersingular operators). See the documentation of AcaOptions::mode for more information.
+- New, faster methods of ACA assembly of integral operators (especially
+  hypersingular operators). See the documentation of AcaOptions::mode for more
+  information.
 
-- ACA-accelerated evaluation of potentials in space. See the documentation of EvaluationOptions::switchToAcaMode for more information.
+- ACA-accelerated evaluation of potentials in space. See the documentation of
+  EvaluationOptions::switchToAcaMode for more information.
 
-- New ``visualization2`` module for interactive visualization of calculation results in Python. Based on the Mayavi library, this module makes it possible to change plot properties (e.g.\ colour schemes, colour scales) using a GUI. Note that the old ``visualization`` module is still supported.
+- New ``visualization2`` module for interactive visualization of calculation
+  results in Python. Based on the Mayavi library, this module makes it possible
+  to change plot properties (e.g. colour schemes, colour scales) using a
+  GUI. Note that the old ``visualization`` module is still supported.
 
-13 June 2013: new version of AHMED
-..................................
-
-.. warning:: It has been brought to our attention that the mode
-     of distribution of AHMED has changed -- to obtain it, one needs
-     now to clone a Git repository rather than to download a tar.gz
-     file. We have seen reports that BEM++ does not compile
-     successfully against the version of AHMED available from the Git
-     repository. We do not yet have access to the new AHMED
-     repository; as soon as we get it, we will investigate the problem
-     and update BEM++ to cooperate with the new version of AHMED.
+- The versions of some libraries downloaded by the BEM++ installer
+  (specifically, DUNE and Trilinos) have been updated.
 
 10 June 2013: released version 1.1.4
-........................................
+....................................
 
 This version brings some improvements to the documentation of the C++
 interface. In particular, standalone functions are now visible in the
@@ -90,16 +94,6 @@ the Doxygen documentation is now searchable.
 In addition, a missing ``#include`` directive has been added to the Swig
 interface file ``bempp.swg``. This is only important for users
 implementing their own boundary operator classes.
-
-10 May 2013: released version 1.1.3
-.......................................
-
-This version adds support for the new version of Enthought Python Distribution,
-`Canopy <https://www.enthought.com/products/canopy>`_. See the `installation
-instructions <installation.html>`_ for more information about installing BEM++
-with Canopy. At the time of writing, the Mac version of Canopy seems to be more
-stable than the Linux version. Linux users might consider using the older EPD
-7.3 version for the time being.
 
 `Older news >> <files/older_news.html>`_
 
