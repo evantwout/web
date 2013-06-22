@@ -7,14 +7,16 @@ Obtaining the code
 The code is available from https://github.com/bempp/bempp.
 
 To download the code, you need to have the Git version control system
-(`<http://git-scm.com>`_) installed. To get the (stable) version 1.1
+(`<http://git-scm.com>`_) installed. To get the (beta) version 1.9
 of the library, execute ::
 
-    git clone -b release_1.1 git://github.com/bempp/bempp.git
+    git clone -b release_1.9 git://github.com/bempp/bempp.git
 
-from the command line in an empty directory. To download the current development
-version, run ``git clone git://github.com/bempp/bempp.git`` instead. (Note
-that the development version is by definition less stable and less well tested.)
+from the command line in an empty directory. To get the older stable version
+1.1, run ``git clone -b release_1.1 git://github.com/bempp/bempp.git`` instead.
+To download the current development version, run ``git clone
+git://github.com/bempp/bempp.git``. (Note that the development version
+is by definition less stable and less well tested.)
 
 Installation
 ------------
@@ -36,8 +38,8 @@ To build and install the library, you need
   download them from `<http://bebendorf.ins.uni-bonn.de/AHMED.html>`_.
 
   .. note:: At present BEM++ is only compatible with AHMED 1.0 (available as a
-  tarball), *not* with AHMED 1.1 or later (available from a Git
-  repository). Support for AHMED 1.1 will be added in due course.
+     tarball), *not* with AHMED 1.1 or later (available from a Git
+     repository). Support for AHMED 1.1 will be added in due course.
 
 - (optional) the Python Mayavi module, if you want to use the visualization
   features from the Python interface to BEM++.

@@ -52,14 +52,15 @@ Features
 News
 ----
 
-21 June 2013: released version 1.9.0
+22 June 2013: released version 1.9.0
 ....................................
 
 This is a preview (beta) of the upcoming BEM++ 2.0. It provides the following
 new features:
 
-- Solution of Maxwell equations. See the documentation of the Maxwell module for
-  more information about the available operators, and the
+- Solution of Maxwell equations. See the `documentation of the Maxwell module
+  <http://www.bempp.org/cppref/1.9/group__maxwell__3d.html>`_ for more
+  information about the available operators, and the
   ``maxwell_scattering_diel.py``, ``maxwell_scattering_pec.py`` and
   ``maxwell_diffraction_by_plate.py`` scripts for usage examples.
 
@@ -68,11 +69,14 @@ new features:
   double-layer potential boundary operator).
 
 - New, faster methods of ACA assembly of integral operators (especially
-  hypersingular operators). See the documentation of AcaOptions::mode for more
-  information.
+  hypersingular operators). See the `documentation of AcaOptions::mode
+  <http://www.bempp.org/cppref/1.9/structBempp_1_1AcaOptions.html#ae8a1d643f44c030552e94e62c052f1d0>`_
+  for more information.
 
-- ACA-accelerated evaluation of potentials in space. See the documentation of
-  EvaluationOptions::switchToAcaMode for more information.
+- ACA-accelerated evaluation of potentials in space. See the `documentation of
+  EvaluationOptions::switchToAcaMode
+  <http://www.bempp.org/cppref/1.9/classBempp_1_1EvaluationOptions.html#ad747e4f5e84017493c9edc3fc3e95fc9>`_
+  for more information.
 
 - New ``visualization2`` module for interactive visualization of calculation
   results in Python. Based on the Mayavi library, this module makes it possible
@@ -82,18 +86,27 @@ new features:
 - The versions of some libraries downloaded by the BEM++ installer
   (specifically, DUNE and Trilinos) have been updated.
 
-10 June 2013: released version 1.1.4
-....................................
+21 June 2013: update on AHMED
+.............................
 
-This version brings some improvements to the documentation of the C++
-interface. In particular, standalone functions are now visible in the
-documentation of the most closely related class; classes responsible
-for grid management have been separated into the new Grid module; and
-the Doxygen documentation is now searchable.
+It is again possible to download the 1.0 version of AHMED (1.0), with which
+BEM++ is compatible, from `M. Bebendorf’s webpage
+<http://bebendorf.ins.uni-bonn.de/AHMED.html>`_. Note that you should download
+the tarball with AHMED 1.0 rather than clone the Git repository: the latter
+contains AHMED 1.1.
 
-In addition, a missing ``#include`` directive has been added to the Swig
-interface file ``bempp.swg``. This is only important for users
-implementing their own boundary operator classes.
+Support for AHMED 1.1 will be added in due course.
+
+13 June 2013: new version of AHMED
+..................................
+
+It has been brought to our attention that the mode of distribution of AHMED has
+changed -- to obtain it, one needs now to clone a Git repository rather than to
+download a tar.gz file. We have seen reports that BEM++ does not compile
+successfully against the version of AHMED available from the Git repository. We
+do not yet have access to the new AHMED repository; as soon as we get it, we
+will investigate the problem and update BEM++ to cooperate with the new version
+of AHMED.
 
 `Older news >> <files/older_news.html>`_
 
