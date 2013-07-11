@@ -10,12 +10,12 @@ To download the code, you need to have the Git version control system
 (`<http://git-scm.com>`_) installed. To get the (beta) version 1.9
 of the library, execute ::
 
-    git clone -b release_1.9 git://github.com/bempp/bempp.git
+    git clone -b release_1.9 https://github.com/bempp/bempp.git
 
 from the command line in an empty directory. To get the older stable version
-1.1, run ``git clone -b release_1.1 git://github.com/bempp/bempp.git`` instead.
+1.1, run ``git clone -b release_1.1 https://github.com/bempp/bempp.git`` instead.
 To download the current development version, run ``git clone
-git://github.com/bempp/bempp.git``. (Note that the development version
+https://github.com/bempp/bempp.git``. (Note that the development version
 is by definition less stable and less well tested.)
 
 Installation
