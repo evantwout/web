@@ -7,10 +7,10 @@ Obtaining the code
 The code is available from https://github.com/bempp/bempp.
 
 To download the code, you need to have the Git version control system
-(`<http://git-scm.com>`_) installed. To get the (beta) version 1.9
+(`<http://git-scm.com>`_) installed. To get version 2.0 
 of the library, execute ::
 
-    git clone -b release_1.9 https://github.com/bempp/bempp.git
+    git clone -b release_2.0 https://github.com/bempp/bempp.git
 
 from the command line in an empty directory. To get the older stable version
 1.1, run ``git clone -b release_1.1 https://github.com/bempp/bempp.git`` instead.
@@ -50,8 +50,7 @@ are automatically downloaded and compiled by the installer. You need at least
 2.5 GB of free space to build the library and all its dependencies; however,
 most of this space can be recovered after a successful installation.
 
-The library has been tested under Scientific Linux 6.1, Ubuntu 12.04 and 12.10,
-OpenSUSE 12.1 and Mac OS 10.7.
+The library has been tested under Scientific Linux 6.1, Ubuntu 12.04 and 13.04, and Mac OS 10.8.
 
 To build the library, do the following:
 
@@ -181,7 +180,7 @@ To build the library, do the following:
 Updates
 -------
 
-Bugfixes to the stable version of BEM++ will be committed to the release_1.1
+Bugfixes to the stable version of BEM++ will be committed to the release_2.0
 git branch. You can obtain the latest bugfixes by executing ::
 
    python bempp_setup.py -u all bempp_setup.cfg

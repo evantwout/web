@@ -52,6 +52,12 @@ Features
 News
 ----
 
+27 September 2013: released version 2.0
+......................................
+This is a major new release. It contains many bugfixes to the 1.9 beta release
+and supports opposite order preconditioning for Dirichlet and Helmholtz problems.
+
+
 22 June 2013: released version 1.9.0
 ....................................
 
