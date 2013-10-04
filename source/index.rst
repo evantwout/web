@@ -10,9 +10,7 @@ BEM++ is a modern open-source C++/Python boundary element library. Its
 development is a joint project between University College London
 (UCL), the University of Reading and the University of Durham. The
 main coding team is located at UCL and consists of Simon Arridge, Timo
-Betcke, Martin Schweiger and Wojciech Śmigaj. Other project members
-include Stephen Langdon (Reading), Douglas Saddy (Reading), and Jon
-Trevelyan (Durham).
+Betcke, Richard James, Nicolas Salles, Martin Schweiger and Wojciech Śmigaj. 
 
 Features
 --------
@@ -125,6 +123,8 @@ Documentation
    Installation <installation>
    Tutorial: exterior Dirichlet problem for the Laplace equation <tutorial_dirichlet>
    Tutorial: adding custom operators <tutorial_custom_ops>
+   C++ interface reference (version 2.0) <http://www.bempp.org/cppref/2.0/index.html>
+   Python interface reference (version 2.0) <http://www.bempp.org/pythonref/2.0/index.html>
    C++ interface reference (version 1.9) <http://www.bempp.org/cppref/1.9/index.html>
    Python interface reference (version 1.9) <http://www.bempp.org/pythonref/1.9/index.html>
    C++ interface reference (version 1.1) <http://www.bempp.org/cppref/1.1/index.html>
@@ -138,14 +138,15 @@ Publications
 ------------
 
 W. Śmigaj, S. Arridge, T. Betcke, J. Phillips, M. Schweiger, "Solving Boundary
-Integral Problems with BEM++", submitted to *ACM Trans. Math. Software*
+Integral Problems with BEM++", submitted to *ACM Trans. Math. Software* (revised version)
 (`preprint <http://www.bempp.org/files/bempp-toms-preprint.pdf>`_, `example
 scripts <http://www.bempp.org/files/bempp-toms-examples.zip>`_).
 
 Acknowledgements
 ----------------
-The project was made possible by EPSRC Grant EP/I030042/1, which
-started on 1 October 2011 and provides initial funding for two years. Special thanks go also to the members of the `HyENA <http://portal.tugraz.at/portal/page/portal/Files/i2610/files/Forschung/Software/HyENA/html/index.html>`_ Team at TU Graz who gave us permission to use their Galerkin integration routines for BEM++.
+This project was made possible by EPSRC Grants EP/I030042/1 and EP/K03829X/1, which
+started on 1 October 2011 and provide funding for four years. 
+Special thanks go also to the members of the `HyENA <http://portal.tugraz.at/portal/page/portal/Files/i2610/files/Forschung/Software/HyENA/html/index.html>`_ Team at TU Graz who gave us permission to use their Galerkin integration routines for BEM++.
 
 Licensing
 ---------
