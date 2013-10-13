@@ -49,6 +49,23 @@ Features
 
 News
 ----
+13 October 2013: MKL linking issue in Version 2.0
+..................................................
+We discovered an MKL linkage issue in BEM++ 2.0. This can for example
+occur if BEM++ is linked against the MKL version in Enthought Canopy.
+So far the observed effect of this issue is potentially wrong results
+in the output of PotentialOperators for the evaluation of solution fields
+away from the computation surface.
+
+We are currently investigating this problem and until it is fully resolved we
+recommend to use the BEM++ version in the branch ``release_2.0_bug_fixes`` which seems to
+fix the issue, i.e.
+download BEM++ with ``git clone -b release_2.0_bug_fixes https://github.com/bempp/bempp.git``. 
+Note that this version has compatibility problems with Ubuntu 12.04. However,
+it has been successfully tested with Ubuntu 13.04
+
+When the issue is fully resolved a fix will be merged back in the main release_2.0
+branch.
 
 27 September 2013: released version 2.0
 ......................................
