@@ -23,16 +23,16 @@ Installation
 
 To build and install the library, you need
 
-- a recent version of Python 2 (2.6 or newer; we recommend using the `Enthought
-  Python Distribution <http://www.enthought.com/products/epd.php>`_)
+- a recent version of Python 2 (2.6 or newer). We recommend using the `Enthought
+  Python Distribution <http://www.enthought.com/products/epd.php>`_ or `Anaconda Python <https://store.continuum.io/cshop/anaconda/>`_.) Both distributions come with MKL (for Anaconda the optional Accelerate package is required), which can be used by BEM++ for BLAS/Lapack support.
 
-- a modern C++ compiler
+- a modern C++ compiler.
 
-- a Fortran compiler (required by Dune, one of the BEM++ dependencies)
+- a Fortran compiler (required by Dune, one of the BEM++ dependencies).
 
 - a BLAS and LAPACK implementation (**Important:** read the information in the
   :ref:`Location of BLAS and LAPACK <location-of-blas-and-lapack>` paragraph
-  below)
+  below).
 
 - (optional) sources of the AHMED library for H-matrix calculations; you can
   download them from `<http://bebendorf.ins.uni-bonn.de/AHMED.html>`_.
@@ -42,7 +42,8 @@ To build and install the library, you need
      repository). Support for AHMED 1.1 will be added in due course.
 
 - (optional) the Python Mayavi module, if you want to use the visualization
-  features from the Python interface to BEM++.
+  features from the Python interface to BEM++. Both, Anaconda (starting with version 1.7) and
+  Enthought Python come with Mayavi.
 
 The build system used to compile BEM++ (CMake) and the remaining dependencies of
 the library (currently Armadillo, Boost, Dune, Intel TBB, Swig and Trilinos)
@@ -236,6 +237,15 @@ Troubleshooting
 
 Known issues
 ............
+
+**BEM++ does not compile with Ubuntu 12.04 and Enthought Canopy 1.1**. 
+
+This
+is due to an issue with Ubuntu 12.04 and the way MKL is linked in Canopy 1.1.
+As alternative we recommend to use Anaconda Python with the Accelerate add-on 
+on Ubuntu 12.04. Older versions of Entought Python may also work. Ubuntu 13.04
+does not have this problems.
+
 
 **Attempt at loading the ``visualization`` Python module fails with the error
 message "ImportError: Could not import backend for traits"**

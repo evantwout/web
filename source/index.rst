@@ -49,6 +49,17 @@ Features
 
 News
 ----
+17 October 2013: Maintenance Release 2.0.1
+..........................................
+A maintenance release that fixes the following issues
+
+- Support for barycentric grids on block operators
+  
+- An MKL linking issue introduced in Version 2.0.0
+
+- Support for Anaconda Python 1.7
+
+
 13 October 2013: MKL linking issue in Version 2.0
 ..................................................
 We discovered an MKL linkage issue in BEM++ 2.0. This can for example
