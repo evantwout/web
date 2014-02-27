@@ -49,6 +49,14 @@ Features
 
 News
 ----
+
+27 February 2014: Updated preprint
+.................................
+The BEM++ preprint on this page has been updated to contain various new examples such as opposite order
+preconditioning and problems with mixed boundary data. It is in sync with the current version 2.0.1 of
+BEM++. A shortened version of this preprint has been accepted for publication in the ACM Transactions on
+Mathematical Software.
+
 17 October 2013: Maintenance Release 2.0.1
 ..........................................
 A maintenance release that fixes the following issues
@@ -166,8 +174,8 @@ Publications
 ------------
 
 W. Śmigaj, S. Arridge, T. Betcke, J. Phillips, M. Schweiger, "Solving Boundary
-Integral Problems with BEM++", submitted to *ACM Trans. Math. Software* (revised version)
-(`preprint <http://www.bempp.org/files/bempp-toms-preprint.pdf>`_, `example
+Integral Problems with BEM++", to appear in *ACM Trans. Math. Software* 
+(`extended and revised preprint <http://www.bempp.org/files/bempp-toms-preprint.pdf>`_, `example
 scripts <http://www.bempp.org/files/bempp-toms-examples.zip>`_).
 
 Acknowledgements
