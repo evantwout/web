@@ -50,6 +50,11 @@ Features
 News
 ----
 
+10 March 2014: AHMED Issues
+................................
+AHMED 1.0 is not available for download any more. BEM++ is not compatible with the current AHMED version. We are working on a fix for this issue. But it may take a few more weeks to be available. In the meantime we recommend to compile BEM++ in dense mode by not enabling AHMED support in the configuration.
+
+
 27 February 2014: Updated preprint
 .................................
 The BEM++ preprint on this page has been updated to contain various new examples such as opposite order
