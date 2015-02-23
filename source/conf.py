@@ -28,7 +28,7 @@ import sys, os
 extensions = ['sphinx.ext.todo', 'sphinx.ext.pngmath', 'sphinx.ext.mathjax']
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ['theme']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -91,13 +91,13 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-# html_theme = 'sphinxdoc'
-
+html_theme = 'basic'
+nosidebar = True
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 
-timosfavouritecolour = '#CA7900' # selected from http://sphinx.pocoo.org/contents.html
+#timosfavouritecolour = '#CA7900' # selected from http://sphinx.pocoo.org/contents.html
 
 #html_theme_options={'sidebarbgcolor':'white', 'sidebartextcolor':timosfavouritecolour, 'sidebarlinkcolor':'dimgray', 'relbarbgcolor':timosfavouritecolour, 'relbartextcolor':'white', 'relbarlinkcolor':'white', 'bgcolor':'white', 'textcolor':'black', 'linkcolor':'black', 'visitedlinkcolor':'gray', 'headtextcolor':timosfavouritecolour,'headlinkcolor':'black','bodyfont':'helvetica,sans-serif', 'headfont':'helvetica,sans-serif', 'footerbgcolor':'white', 'footertextcolor':'gray', 'headbgcolor':'white', 'visitedlinkcolor':'black', 'sidebarbtncolor':timosfavouritecolour}
 
@@ -115,7 +115,7 @@ timosfavouritecolour = '#CA7900' # selected from http://sphinx.pocoo.org/content
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title ='BEM++: An open source boundary element library' 
+#html_title ='BEM++: An open source boundary element library' 
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = BEM++ 
@@ -127,12 +127,12 @@ html_title ='BEM++: An open source boundary element library'
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-#html_favicon = None
+html_favicon = 'theme/files/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['theme/files']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -159,7 +159,7 @@ html_static_path = ['_static']
 #html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-html_show_sourcelink = False
+#html_show_sourcelink = False
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #html_show_sphinx = True
@@ -176,7 +176,7 @@ html_show_sourcelink = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'BEMdoc'
+#htmlhelp_basename = 'BEMdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
