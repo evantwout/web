@@ -11,7 +11,7 @@
 
 }
 
-body {margin:0;background:url('/_static/bg.png');background-repeat:repeat-xy;background-position:center top;background-color:#999999;font-family:sans}
+body {margin:0;background:url('/_static/bg.png');background-repeat:repeat-xy;background-position:center top;background-color:#88AAFF;font-family:sans}
 
 .head,.main,.foot,.menu {margin-left:auto;margin-right:auto}
 .head,.foot {width:800px;background-color:#101055;color:#88AAFF;text-align:center;font-family:hussarbold}
