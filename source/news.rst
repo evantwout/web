@@ -1,118 +1,57 @@
 News
 ====
 
-12 December 2012: New BEM++ preprint
-........................................
+13 October 2014: Maintenance release 2.0.2
+..........................................
+A maintenance release that fixes a number of bugs discovered over the last few months:
 
-The preprint `Solving boundary integral problems with BEM++
-<http://www.bempp.org/files/bempp-toms-preprint.pdf>`_ is now available together
-with the accompanying `example scripts
-<http://www.bempp.org/files/bempp-toms-examples.zip>`_. It describes the design
-of BEM++ and discusses several example applications.
+- A memory leak in one of the integrators (issue `#165 <https://github.com/bempp/bempp/issues/165>`_)
+- A compilation error occurring in the 32-bit mode (issue `#160 <https://github.com/bempp/bempp/issues/160>`_)
+- A bug in ``Solver::checkConsistency()`` (issue `#150 <https://github.com/bempp/bempp/issues/150>`_)
+- Incorrect Teuchos library name in the CMake config file installed with BEM++ (issue `#88 <https://github.com/bempp/bempp/issues/88>`_) 
+
+10 March 2014: AHMED issues
+...........................
+AHMED 1.0 is not available for download any more. BEM++ is not compatible with the current AHMED version. We are working on a fix for this issue. But it may take a few more weeks to be available. In the meantime we recommend to compile BEM++ in dense mode by not enabling AHMED support in the configuration.
+
+27 February 2014: Updated preprint
+..................................
+The BEM++ preprint on this page has been updated to contain various new examples such as opposite order
+preconditioning and problems with mixed boundary data. It is in sync with the current version 2.0.1 of
+BEM++. A shortened version of this preprint has been accepted for publication in the ACM Transactions on
+Mathematical Software.
+
+17 October 2013: Maintenance release 2.0.1
+..........................................
+A maintenance release that fixes the following issues
+
+- Support for barycentric grids on block operators
+  
+- An MKL linking issue introduced in Version 2.0.0
+
+- Support for Anaconda Python 1.7
 
 
-11 December 2012: released version 1.1.0
-........................................
+13 October 2013: MKL linking issue in Version 2.0
+.................................................
+We discovered an MKL linkage issue in BEM++ 2.0. This can for example
+occur if BEM++ is linked against the MKL version in Enthought Canopy.
+So far the observed effect of this issue is potentially wrong results
+in the output of PotentialOperators for the evaluation of solution fields
+away from the computation surface.
 
-New features:
+We are currently investigating this problem and until it is fully resolved we
+recommend to use the BEM++ version in the branch ``release_2.0_bug_fixes`` which seems to
+fix the issue, i.e.
+download BEM++ with ``git clone -b release_2.0_bug_fixes https://github.com/bempp/bempp.git``. 
+Note that this version has compatibility problems with Ubuntu 12.04. However,
+it has been successfully tested with Ubuntu 13.04
 
-- Significantly simplified the implementation of custom boundary operators:
+When the issue is fully resolved a fix will be merged back in the main release_2.0
+branch.
 
-  * Thanks to the new ``GeneralElementarySingularIntegralOperator`` class there is
-    no need to declare a new subclass of ``ElementaryIntegralOperator`` for each new
-    kernel.
-
-  * The mechanism of discrete weak-form caching has been modified and is no
-    longer based on a global cache indexed with identifiers of abstract boundary
-    operators. As a result, implementation of the ``AbstractBoundaryOperator::id()``
-    method in new operator classes can be safely skipped, as this method is no
-    longer used.
-
-- Improved the conversion of discrete operators into the H-matrix format:
-
-  * This functionality has been implemented for discrete operators stored as
-    sparse matrices and for blocked discrete operator. This means in particular
-    that a discrete operator composed of several blocks stored as separate H-
-    and/or sparse matrices can now be converted into a *single* H-matrix.
-
-  * The default values of the arguments to
-    ``DiscreteBoundaryOperator::asDiscreteAcaBoundaryOperator()`` have been changed
-    to reduce the chances of unintended loss of accuracy during addition of
-    H-matrices.
-
-- Added the ``adjoint()`` function returning the adjoint of a boundary operator.
-
-- Added the ``transpose()``, ``conjugate()`` and ``conjugateTranspose()`` functions
-  returning the respective transformations of discrete boundary operators.
-
-- Added the ``UnitSpace`` class, representing the space consisting of the single
-  function equal to 1 everywhere. This class is useful in the solution of
-  Neumann problems.
-
-- Added the ``estimateL2Error()`` function, which can be used to calculate
-  accurately the :math:`L^2` norm of the difference between a numerical and analytical
-  solution of a problem.
-
-- ``GridFunction`` objects are now able to calculate their projections on any dual
-  space, specified by a new parameter of the ``GridFunction::projections()`` method.
-  For compatibility, it remains possible to fix the dual space during
-  construction of a ``GridFunction`` and to call ``projections()`` without arguments.
-
-- The quadrature order for single regular integrals specified with
-  ``AccuracyOptions`` is now used during the discretisation of functions into
-  ``GridFunction`` objects (previously it was only used during potential
-  evaluation).
-
-This version maintains source-level (but not binary-level) backward
-compatibility with versions 1.0.x.
-
-12 November 2012: released version 1.0.2
-........................................
-
-A maintenance release fixing a few minor bugs in BEM++. It contains a workaround
-for a suspected compiler bug in llvm-gcc on MacOS X 10.7 in 64-bit mode and
-adds support for GCC 4.7.
-
-3 November 2012: released version 1.0.1
+27 September 2013: released version 2.0
 .......................................
+This is a major new release. It contains many bugfixes to the 1.9 beta release
+and supports opposite order preconditioning for Dirichlet and Helmholtz problems.
 
-This is a maintenance release correcting two bugs in the AHMED interface
-and improving the update procedure.
-
-29 October 2012: released version 1.0.0
-.......................................
-
-This is the first official release of the library, including the
-following features:
-
-- Galerkin discretization of all standard boundary integral operators
-  (single-layer potential, double-layer potential, adjoint double-layer
-  potential, hypersingular operator) for Laplace, Helmholtz and modified
-  Helmholtz problems in three dimensions.
-
-- Numerical evaluation of boundary-element integrals (singular integrals dealt
-  with using Sauter-Schwab quadrature rules).
-
-- Triangular surface mesh handling. Import of meshes in Gmsh format.
-
-- Piecewise constant and continuous piecewise linear basis functions.
-
-- Dense-matrix representation of boundary integral operators supported natively.
-
-- Assembly of H-matrix representations of boundary integral operators via
-  adaptive cross approximation (ACA) supported thanks to an interface to
-  M. Bebendorf’s `AHMED <http://bebendorf.ins.uni-bonn.de/AHMED.html>`_ library.
-
-- H-matrix-based preconditioners (via AHMED).
-
-- Easy creation of operators composed of several logical blocks.
-
-- Interfaces to iterative linear solvers from Trilinos.
-
-- Evaluation of potentials in space (away from the discretized surface).
-
-- Export of solutions in VTK format.
-
-- Parallel operation on shared-memory CPU architectures.
-
-- C++ and Python interfaces.

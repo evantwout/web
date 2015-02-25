@@ -1,24 +1,20 @@
 Installation Instructions
 =========================
 
-Introduction
-------------
-
-`BEM++ <http://www.bempp.org>`_ is a C++/Python boundary element library.
-
 Dependecies
 -----------
 
 To build and install BEM++ you will need to have the following installed:
 
-*   Python 2 (2.? or newer) or 3. We recommend using `Enthought 
-    Python <http://www.enthought.com/products/epd.php>`_ or `Anaconda
-    Python <https://store.continuum.io/cshop/anaconda/>`_ as both come
-    with MKL (for Anaconda, you will need to Accelerate package).
+*   Python 2 (2.7 or newer) or 3 (3.4 or newer). We recommend using `Anaconda
+    Python <https://store.continuum.io/cshop/anaconda/>`_ with the Accelerate 
+    package.
 
 *   `Git version control system <http://git-scm.com/>`_.
 
 *   `CMake <http://www.cmake.org/>`_.
+
+*   Pkg-config (on mac available via homebrew).
 
 Obtaining the Code
 ------------------
