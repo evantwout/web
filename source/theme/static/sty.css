@@ -11,7 +11,7 @@
 
 }
 
-body {margin:0;background:url('/_static/bg.png');background-repeat:repeat-xy;background-position:right top;background-color:#88AAFF;font-family:sans}
+body {margin:0;background:url('/_static/bg.png');background-repeat:repeat-y;background-position:right top;background-color:#88AAFF;font-family:sans}
 @media (min-width:1000px){
     .head,.main,.foot,.menu {margin-left:0px;margin-right:300px}
     .main,.menu {border-right:3px solid #000077}
