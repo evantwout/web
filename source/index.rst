@@ -8,10 +8,11 @@ Welcome to BEM++
 
 BEM++ is a modern open-source C++/Python boundary element library. Its
 development is a joint project between University College London
-(UCL), the University of Reading and the University of Durham. The
-main coding team is located at UCL and consists of Simon Arridge, Timo
-Betcke, Richard James, Nicolas Salles, Martin Schweiger, Matthew Scroggs and
-Wojciech Śmigaj.
+(UCL), the University of Reading and the University of Durham.
+
+The main coding team is located at UCL and consists of Simon Arridge, Timo
+Betcke, Richard James, Nicolas Salles, Martin Schweiger, Matthew Scroggs,
+Wojciech Śmigaj and Elvin van 't Wout.
 
 Features
 --------
@@ -30,12 +31,6 @@ Features
 
 - Dense-matrix representation of boundary integral operators supported natively.
 
-- Assembly of H-matrix representations of boundary integral operators via
-  adaptive cross approximation (ACA) supported thanks to an interface to
-  M. Bebendorf’s `AHMED <http://bebendorf.ins.uni-bonn.de/AHMED.html>`_ library.
-
-- H-matrix-based preconditioners (via AHMED).
-
 - Easy creation of operators composed of several logical blocks.
 
 - Interfaces to iterative linear solvers from Trilinos.
@@ -47,6 +42,8 @@ Features
 - Parallel operation on shared-memory CPU architectures.
 
 - C++ and Python interfaces.
+
+- FEM/BEM Coupling with `FEniCS <http://www.fenicsproject.org>`_.
 
 Publications
 ------------

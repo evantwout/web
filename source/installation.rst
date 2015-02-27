@@ -1,6 +1,10 @@
 Installation Instructions
 =========================
 
+These are the instructions for installing the newest version (3.0) of BEM++. If
+you want to install an older version of BEM++, follow the `installation
+instructions for version 2.0 <old_installation.html>`_.
+
 Dependecies
 -----------
 
