@@ -1,8 +1,6 @@
 Documentation
 =============
 
-.. toctree::
-   :maxdepth: 1
 
    C++ interface reference (version 2.0) <http://www.bempp.org/cppref/2.0/index.html>
    Python interface reference (version 2.0) <http://www.bempp.org/pythonref/2.0/index.html>
