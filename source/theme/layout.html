@@ -23,9 +23,11 @@
           href="{{ pathto(master_doc) }}">{{ shorttitle|e }}</a></div>
         <div class="rel">
             <a href="{{ pathto('index') }}">Home</a>{{ reldelim2 }}
+            <a href="{{ pathto('features') }}">Features</a>{{ reldelim2 }}
             <a href="{{ pathto('installation') }}">Installation</a>{{ reldelim2 }}
-            <a href="{{ pathto('documentation') }}">Class Documentation</a>{{ reldelim2 }}
-            <a href="{{ pathto('tutorials') }}">Tutorials</a>
+            <a href="{{ pathto('docs') }}">Documentation</a>{{ reldelim2 }}
+            <a href="{{ pathto('tutorials') }}">Tutorials</a>{{ reldelim2 }}
+            <a href="{{ pathto('publications') }}">Publications</a>
         </div>
         {%- endblock %}
        </div>
@@ -43,7 +45,7 @@
         <div class="sidebar">
           {%- block sidebartoc %}
           <h3>{{ _('Table Of Contents') }}</h3>
-          {{ toctree() }}
+          {{ toctree(includehidden=True) }}
           {%- endblock %}
           {%- block sidebarsearch %}
           <h3 style="margin-top: 1.5em;">{{ _('Search') }}</h3>
@@ -57,7 +59,9 @@
             {{ _('Enter search terms or a module, class or function name.') }}
           </p>
           {%- endblock %}
-          <a class="twitter-timeline" href="https://twitter.com/BemppProject" data-widget-id="573113294782894080">Tweets by @BemppProject</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </br>
+          <h3>{{ _('News') }}</h3>
+          <a class="twitter-timeline" href="https://twitter.com/BemppProject" data-widget-id="573113294782894080" data-chrome="noheader nofooter">News by @BemppProject</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </div>
         <div class="clearer"></div>
       </div>

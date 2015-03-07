@@ -1,70 +1,27 @@
-.. BEM++ documentation master file, created by
-   sphinx-quickstart on Tue Mar 27 11:38:21 2012.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-
 Welcome to BEM++
 ================
 
-BEM++ is a modern open-source C++/Python boundary element library. Its
-development is a joint project between University College London
-(UCL), the University of Reading and the University of Durham.
+BEM++ is an open-source Galerkin boundary element library that
+handles Laplace, Helmholtz and Maxwelll problems on bounded and unbounded
+domains.
 
-The main coding team is located at UCL and consists of Simon Arridge, Timo
-Betcke, Richard James, Nicolas Salles, Martin Schweiger, Matthew Scroggs,
-Wojciech Śmigaj and Elvin van 't Wout.
+Current Version
+---------------
+Version: 2.9.0 (Development release)
 
-Features
---------
-
-- Galerkin discretization of all standard boundary integral operators
-  (single-layer potential, double-layer potential, adjoint double-layer
-  potential, hypersingular operator) for Laplace, Helmholtz, modified
-  Helmholtz and Maxwell problems in three dimensions.
-
-- Numerical evaluation of boundary-element integrals (singular integrals dealt
-  with using Sauter-Schwab quadrature rules).
-
-- Triangular surface mesh handling. Import of meshes in Gmsh format.
-
-- Piecewise constant and continuous piecewise linear basis functions.
-
-- Dense-matrix representation of boundary integral operators supported natively.
-
-- Easy creation of operators composed of several logical blocks.
-
-- Interfaces to iterative linear solvers from Trilinos.
-
-- Evaluation of potentials in space (away from the discretized surface).
-
-- Export of solutions in VTK format.
-
-- Parallel operation on shared-memory CPU architectures.
-
-- C++ and Python interfaces.
-
-- FEM/BEM Coupling with `FEniCS <http://www.fenicsproject.org>`_.
-
-Publications
+Getting Help
 ------------
-
-W. Śmigaj, S. Arridge, T. Betcke, J. Phillips, M. Schweiger, "Solving Boundary
-Integral Problems with BEM++", to appear in *ACM Trans. Math. Software* 
-(`extended and revised preprint <http://www.bempp.org/files/bempp-toms-preprint.pdf>`_, `example
-scripts <http://www.bempp.org/files/bempp-toms-examples.zip>`_).
-
-Acknowledgements
-----------------
-This project was made possible by EPSRC Grants EP/I030042/1 and EP/K03829X/1, which
-started on 1 October 2011 and provide funding for four years. 
-Special thanks go also to the members of the `HyENA <http://portal.tugraz.at/portal/page/portal/Files/i2610/files/Forschung/Software/HyENA/html/index.html>`_ Team at TU Graz who gave us permission to use their Galerkin integration routines for BEM++.
+* To download and install BEM++ check out the `Installation <installation.html>`_ page.
+* For example use of BEM++ see the `Tutorials <tutorials.html>`_.
+* To receive announcements and for general support sign up to the `BEM++ mailing list <mailto:bempp+subscribe@googlegroups.com>`_.
+* For project updates follow us on `Twitter <https://twitter.com/BemppProject>`_.
+* Submit bug reports at https://github.com/bempp/bempp/issues.
 
 Licensing
 ---------
-The library itself is covered by a BSD license. The full licensing text is:
+The library source code is covered by the MIT license. The full licensing text is:
 
-Copyright (C) 2011 by the BEM++ Authors
+Copyright (C) 2015 by the BEM++ Authors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -84,16 +41,19 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
+**Please note that depending on the chosen linking options with 3rd party librarys 
+the compiled BEM++ library may have a more restrictive license.**
+
+
 .. comment
 
-   Indices and tables
-   -------------------
-
-   * :ref:`genindex`
-   * :ref:`modindex`
-   * :ref:`search`
-
 .. toctree::
+    :hidden:
     :maxdepth: 2
 
+    self
+    features
     installation
+    docs
+    tutorials
+    publications
