@@ -2,7 +2,7 @@ Welcome to BEM++
 ================
 
 BEM++ is an open-source Galerkin boundary element library that
-handles Laplace, Helmholtz and Maxwelll problems on bounded and unbounded
+handles Laplace, Helmholtz and Maxwell problems on bounded and unbounded
 domains.
 
 Current Version
