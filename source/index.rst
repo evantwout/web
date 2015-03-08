@@ -48,8 +48,7 @@ Development
 -----------
 BEM++ is developed at `University College London <http://www.ucl.ac.uk>`_. The
 current development team includes Simon Arridge, Timo Betcke, Nicolas Salles,
-Matthew Scroggs and Elwin Van't Wout. BEM++ is supported by `EPSRC <http://www.epsrc.ac.uk>`_
-Grants EP/I030042/1 and EP/K03829X/1.
+Matthew Scroggs and Elwin Van't Wout. Much of the original work on BEM++ was done by Wojciech Śmigaj, now at Simpleware Ltd. BEM++ is supported by `EPSRC <http://www.epsrc.ac.uk>`_ Grants EP/I030042/1 and EP/K03829X/1.
 
 
 .. comment
