@@ -44,6 +44,13 @@ THE SOFTWARE.
 **Please note that depending on the chosen linking options with 3rd party librarys 
 the compiled BEM++ library may have a more restrictive license.**
 
+Development
+-----------
+BEM++ is developed at `University College London <http://www.ucl.ac.uk>`_. The
+current development team includes Simon Arridge, Timo Betcke, Nicolas Salles,
+Matthew Scroggs and Elwin Van't Wout. BEM++ is supported by `EPSRC <http://www.epsrc.ac.uk>`_
+Grants EP/I030042/1 and EP/K03829X/1.
+
 
 .. comment
 
