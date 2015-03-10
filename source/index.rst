@@ -13,7 +13,7 @@ Getting Help
 ------------
 * To download and install BEM++ check out the `Installation <installation.html>`_ page.
 * For example use of BEM++ see the `Tutorials <tutorials.html>`_.
-* To receive announcements and for general support sign up to the `BEM++ mailing list <mailto:bempp+subscribe@googlegroups.com>`_.
+* To receive announcements and for general support sign up to the `BEM++ mailing list <https://groups.google.com/forum/#!forum/bempp>`_.
 * For project updates follow us on `Twitter <https://twitter.com/BemppProject>`_.
 * Submit bug reports at https://github.com/bempp/bempp/issues.
 
