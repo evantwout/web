@@ -1,79 +1,88 @@
-Installation
-============
+Installation Instructions
+=========================
 
+Building BEM++ from scratch
+---------------------------
 
-Please note that the installation instructions presented here refer to the current development release (2.9+). Instructions for BEM++ 2.0 can be found `here <old_installation.html>`_.
+Dependencies
+^^^^^^^^^^^^
 
-In the following we describe the installation under Mac OS X 10.10 and Ubuntu 14.04. Later Ubuntu versions and other Linux flavors may work if the dependencies are satisfied. But we are not testing them explicitly.
+To build and install BEM++ you will need to have the following installed:
 
-The installation described below assumes that the default system Python interpreter is used. We strongly recommend to download `Anaconda Python <https://store.continuum.io/cshop/anaconda/>`_ and to install the commercial MKL module, which is `free <https://store.continuum.io/cshop/academicanaconda>`_ for academic use. Once the installation is in place one can use the command ``conda install mkl`` to install the MKL module. The BEM++ installer will automatically pick this up and use it as its BLAS library. In the future we may fully remove the dependency to external BLAS libraries. If Anaconda together with Intel MKL is not installed BEM++ will use the available system BLAS library.
+*   Python 2.7 or Python 3.4/3.5
 
-**In the future we may remove the dependency to external BLAS libraries.**
+*   `Git version control system <http://git-scm.com/>`_.
 
-Mac OS X Dependencies
----------------------
+*   `CMake <http://www.cmake.org/>`_.
 
-If you haven't done so you need to install XCode from the App Store to get the necessary development tools. In addition you need to install recent versions of *cmake* and *pkg-config*. If you have `Homebrew <brew.sh>`_ you can install these dependencies with the commands:
+*   Cython v0.22 or higher
 
-* ``brew install cmake``
-* ``brew install pkg-config``
+*   Scipy v0.16.0 or higher
 
-Ubuntu 14.04 Dependencies
--------------------------
+*   Numpy 1.9 or higher
 
-To install BEM++ on Ubuntu 14.04 you need to install several dependencies. This can be accomplished with the command::
-
-    sudo apt-get install g++ cmake libopenblas-dev ipython-notebook python-numpy \
-    python-scipy libvtk6-dev vtk6 libxml2 libxml2-dev \
-    zlib1g-dev git python-setuptools libbz2-dev liblapack3 \ 
-    libarmadillo-dev mpi-default-bin
-
+  
 
 Obtaining the Code
-------------------
+^^^^^^^^^^^^^^^^^^
 
 The code is available from https://github.com/bempp/bempp. You can
 get the latest stable version be executing::
 
     git clone https://github.com/bempp/bempp.git
 
-This creates a directory ``bempp`` in the current subdirectory.
+Compiling
+^^^^^^^^^
 
-Compilation
---------------------------
-
-
-To compile BEM++ use the following commands::
+To compile BEM++, navigate to the directory where the source code has
+downloaded::
 
     cd bempp
+
+then make a folder called build and navigate into it::
+
     mkdir build
     cd build
-    cmake -DCMAKE_BUILD_TYPE=Release -DWITH_FENICS=ON ..
-    make -j6
 
-The last command ``make -j6`` compiles BEM++ in parallel using six build instances. The option `-j6` is best for quad-core machines. If you have more or fewer cores available you should adapt this command.
+BEM++ will compile in this directory. Next, make the configuration file
+for the build with cmake::
 
-The option ``-DWITH_FENICS=ON`` builds `FEniCS <http://fenicsproject.org>`_ as part of BEM++. FEniCS is a modern FEM library with a Python interface. BEM++ allows the solution of certain coupled FEM/BEM problems with FEniCS.
+    cmake -DCMAKE_INSTALL_PREFIX=<install_dir> ..
+
+Substitute ``<install_dir>`` by the directory where BEM++ should be
+installed (e.g. ``$HOME/bempp``)
+
+Next, compile the BEM++ library::
+
+    make -j4
+
+The parameter ``-j4`` denotes that we use 4 parallel build processes.
+If you have a system with a larger number of cores you can set
+it to ``-j8`` or higher to speed up the installation.
+The installer will download any dependencies you do not have.
+
+After successful compilation run::
+
+    make install
+
+to install BEM++ to the specified location.
+
 
 
 Running BEM++
--------------
+^^^^^^^^^^^^^
 
-To run a Python or IPython environment including BEM++, run::
+You will need to point the ``PYTHONPATH`` environment variable to BEM++. For example, if BEM++ was installed in ``/home/foo/bempp`` using Python 2.7 use::
 
-    build/bin/bempp
+    export PYTHONPATH=/home/foo/bempp/lib/python2.7/site-packages
 
-for a Python environment
+It may be necessary to also adapt the ``LD_LIBRARY_PATH`` (Linux) or ``DYLD_LIBRARY_PATH`` environment variable (Mac), i.e.::
 
-or::
+    export LD_LIBRARY_PATH=/home/foo/bempp/lib
 
-    build/bin/ibempp
 
-for an IPython environment
 
-If you add the command::
 
-    export PATH="/path/to/bempp/build/bin:$PATH"
 
-to your `.bashrc` or `.bash_profile` file you can run `bempp` or `ibempp` from your terminal.
+
 

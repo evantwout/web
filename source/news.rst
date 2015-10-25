@@ -1,6 +1,11 @@
 News
 ====
 
+25 October 2015: Release of Version 2.9.9
+.........................................
+This is the last test of the upcoming 3.0 release version.
+
+
 13 October 2014: Maintenance release 2.0.2
 ..........................................
 A maintenance release that fixes a number of bugs discovered over the last few months:

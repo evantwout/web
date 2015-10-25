@@ -19,11 +19,11 @@ Features
 
 - Evaluation of potentials in space (away from the discretized surface).
 
-- Export of solutions in VTK format.
+- Built-in H-Matrix assembly of boundary operators and potentials
 
 - Parallel operation on shared-memory CPU architectures.
 
-- C++ and Python interfaces.
+- Pythonic library interface
 
 - FEM/BEM Coupling with `FEniCS <http://www.fenicsproject.org>`_.
 
@@ -36,25 +36,27 @@ are available yet. A major focus in the current development branch is the Python
 will become the preferred language for BEM++ and several non-performance critical features have
 been directly implemented in Python. The C++ core is interfaced via Cython. **Unless H-Matrix support
 via AHMED 1.0 is crucial we recommend to use the development branch. Version 2 will not be
-further developed.** Native H-Matrix support is currently in development.
+further developed.** Native H-Matrix compression is integrated into the current version. In comparison
+to BEM++ 2.0 only the H-LU decomposition is missing. However, several other preconditioning
+methods are built-in.
 
 The following table compares the features of version 2.0 with the current development release. This will be updated as development progresses.
 
 =================================== =============== =============================
-Feature                             Version 2       Development Branch
+Feature                             Version 2       Development Version 2.9.9
 =================================== =============== =============================
 Laplace Kernels                     yes             yes
 Helmholtz Kernels                   yes             yes
-Maxwell Kernels                     yes             not yet from Python
+Maxwell Kernels                     yes             yes
 Discontinuous polynomial spaces     yes             yes
 Continuous polyomial spaces         yes             yes
-H-Matrices                          via AHMED 1.0   native support in development 
-Dual Spaces on Barycentric Grids    yes             in development
-High-Freq. Preconditioning          no              in development
+H-Matrices                          via AHMED 1.0   native support
+Dual Spaces on Barycentric Grids    yes             yes
+High-Freq. Preconditioning          no              yes
 FEM/BEM Coupling                    no              via FEniCS (DUNE to come)
 Grid Management                     Foamgrid        any Dune Grid Manager
 FMM                                 no              in planning
-Higher-Order Elements               no              in development
+Higher-Order Elements               no              no
 Python Interface                    Swig            Cython
 Installer                           custom          CMake
 =================================== =============== =============================

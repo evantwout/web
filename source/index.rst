@@ -7,7 +7,7 @@ domains.
 
 Current Version
 ---------------
-Version: 2.9.0 (Development release)
+Version: 2.9.9-nightly (Development release)
 
 Getting Help
 ------------
@@ -47,7 +47,7 @@ the compiled BEM++ library may have a more restrictive license.**
 Development
 -----------
 BEM++ is developed at `University College London <http://www.ucl.ac.uk>`_. The
-current development team includes Simon Arridge, Timo Betcke, Nicolas Salles,
+current development team includes Simon Arridge, Timo Betcke,
 Matthew Scroggs and Elwin Van 't Wout. Much of the original work on BEM++ was done by Wojciech Śmigaj, now at Simpleware Ltd. BEM++ is supported by `EPSRC <http://www.epsrc.ac.uk>`_ Grants EP/I030042/1 and EP/K03829X/1.
 
 
