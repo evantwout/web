@@ -1,3 +1,7 @@
+
+.. note:: This website uses cookies for certain functionalities and to collect usage data. Please see the :doc:`privacy` page for more information.
+
+
 Welcome to BEM++
 ================
 
@@ -7,15 +11,22 @@ domains.
 
 Current Version
 ---------------
-Version: 2.9.9-nightly (Development release)
+Version: 2.9.9 (Development release)
 
 Getting Help
 ------------
 * To download and install BEM++ check out the `Installation <installation.html>`_ page.
 * For example use of BEM++ see the `Tutorials <tutorials.html>`_.
-* To receive announcements and for general support sign up to the `BEM++ mailing list <mailto:bempp+subscribe@googlegroups.com>`_.
+* To receive announcements and for general support sign up to the `BEM++ mailing list <https://groups.google.com/forum/#!forum/bempp>`_.
 * For project updates follow us on `Twitter <https://twitter.com/BemppProject>`_.
 * Submit bug reports at https://github.com/bempp/bempp/issues.
+
+Citing BEM++
+------------
+If you use BEM++ in your research please include the following citation in your publications:
+
+* W. Śmigaj, S. Arridge, T. Betcke, J. Phillips, M. Schweiger, "Solving Boundary 
+  Integral Problems with BEM++", *ACM Trans. Math. Software 41*, pp. 6:1--6:40 (2015)  
 
 Licensing
 ---------
@@ -50,9 +61,6 @@ BEM++ is developed at `University College London <http://www.ucl.ac.uk>`_. The
 current development team includes Simon Arridge, Timo Betcke,
 Matthew Scroggs and Elwin Van 't Wout. Much of the original work on BEM++ was done by Wojciech Śmigaj, now at Simpleware Ltd. BEM++ is supported by `EPSRC <http://www.epsrc.ac.uk>`_ Grants EP/I030042/1 and EP/K03829X/1.
 
-
-.. comment
-
 .. toctree::
     :hidden:
     :maxdepth: 2
@@ -63,3 +71,4 @@ Matthew Scroggs and Elwin Van 't Wout. Much of the original work on BEM++ was do
     docs
     tutorials
     publications
+    privacy

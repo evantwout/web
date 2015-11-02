@@ -1,10 +1,9 @@
-Welcome to BEM++
-================
+Documentation
+=============
 
 .. toctree::
     :maxdepth: 1
 
-    installation
     grid
     spaces
     grid_functions
