@@ -1,13 +1,36 @@
 Installation Instructions
 =========================
 
-In the following we describe different ways of installing BEM++.
-The most recommended installation method is to use one of the binary
-packages for Linux or Homebrew on MacOS. Building BEM++ directly from
-source is only recommended for users who have non-standard requirements
-that are not met by the binary packages.
+In the following we describe different ways of installing BEM++. We
+offer the following installation options.
+
+* :ref:`virtualbox`
+* :ref:`linuxbinary`
+* :ref:`installhomebrew`
+* :ref:`sourceinstall`
 
 **It is highly recommended to install Gmsh and make it available in the system path as BEM++ uses it for visualization and the shapes module.**
+
+.. _virtualbox:
+
+Using a VirtualBox image of BEM++ (Windows, Linux, MacOS) 
+---------------------------------------------------------
+
+We provide a VirtualBox image with a preconfigured IPython Notebook
+server that runs BEM++. To use this image please do the following.
+
+* Download a recent version of `Oracle VirtualBox <https://www.virtualbox.org>`_ and install it. VirtualBox is a free and capable virtualization environment.
+* Download the `BEM++ VirtualBox image <http://www.bempp.org/files/BEMPP_2.9.9.ova>`_
+* Start VirtualBox and import the image using ``File -> Import Appliance``.
+* After importing the image you will see a new entry for BEMPP in the list of virtual machines. Click on it and then click on the Settings icon.
+* In the settings under ``System`` adapt the available memory and number of processes that the virtual machine should use. Default is 4 Cores and 4GB RAM. This depends on your system and should not exceed your existing hardware.
+* Then under ``Shared Folders`` add a new shared folder that will hold the IPython Notebooks. Under ``Folder Path`` choose the directory on your host system that you want to use. As folder name you must use the name ``export``. The virtual machine image depends on it. Then click the box next to ``Make Permanent`` to store the settings. Click ``OK`` and you are done.
+* Start the virtual machine on the main screen using the ``Show`` button. By holding ``Shift`` while clicking it the image will be started without an extra window appearing.
+* Once the machine is fully booted use the address http://localhost:8888 in your webbrowser to access the IPython notebook server in the virtual image. You can load and save notebooks in the export folder specified earlier. The IPython environment provides Numpy, Scipy, Matplotlib and BEM++. Gmsh is also installed to access certain functions of the ``shapes`` module in BEM++.
+
+If you need to login to the image and modify settings the username, password and root password are all ``bempp``. The image itself is based on a Debian 8.2 base system. The image is preconfigured to accept all connections on port 8888 where the IPython Notebook server is running.
+
+.. _linuxbinary:
 
 Installing a binary package on Linux
 ------------------------------------
@@ -32,6 +55,8 @@ If you download the ``tar.gz`` package you can unpack it anywhere. However, depe
     export PYTHONPATH=<dir>/python-bempp/lib/python2.7/site-packages
 
 Here, ``<dir>`` refers to the directory in which the ``tar.gz`` file was unpacked.
+
+.. _installhomebrew:
 
 Installation on MacOS using Homebrew
 ------------------------------------
@@ -95,6 +120,8 @@ To test BEM++ simply run in the Python interpreter the commands::
 
 This runs a range of unit tests. Note that if Gmsh is not installed then the first command will give a warning and several unit tests may not work properly.
 
+
+.. _sourceinstall:
 
 Building BEM++ from scratch
 ---------------------------

@@ -1,5 +1,5 @@
 
-.. note:: This website uses cookies for certain functionalities and to collect usage data. Please see the :doc:`privacy` page for more information.
+.. note:: This website uses cookies for certain functionalities and to collect usage data. Please see the `Privacy <privacy.html>`_ page for more information.
 
 
 Welcome to BEM++
@@ -20,6 +20,17 @@ Getting Help
 * To receive announcements and for general support sign up to the `BEM++ mailing list <https://groups.google.com/forum/#!forum/bempp>`_.
 * For project updates follow us on `Twitter <https://twitter.com/BemppProject>`_.
 * Submit bug reports at https://github.com/bempp/bempp/issues.
+
+Quick Start
+-----------
+
+* Download the `BEM++ VirtualBox image <http://www.bempp.org/files/BEMPP_2.9.9.ova>`_
+* In VirtualBox configure a shared folder named ``export``.
+* Adapt the settings for number of processors and memory to your hardware.
+* Start the image.
+* Open an IPython notebook session on http://localhost:8888 to load or write new IPython notebooks for BEM++.
+
+For more detailed information, binary installers for Linux, Homebrew installers for Mac or source code compilation of BEM++ see the `Installation <installation.html>`_ page.
 
 Citing BEM++
 ------------
