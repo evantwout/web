@@ -24,7 +24,7 @@ Getting Help
 Quick Start
 -----------
 
-* Download the `BEM++ VirtualBox image <http://www.bempp.org/files/BEMPP_2.9.9.ova>`_
+* Download the `BEM++ VirtualBox image <http://www.bempp.org/files/Ubuntu_BEMPP_2.9.9.ova>`_
 * In VirtualBox configure a shared folder named ``export``.
 * Adapt the settings for number of processors and memory to your hardware.
 * Start the image.
