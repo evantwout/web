@@ -11,7 +11,8 @@ Documentation
     available_operators
     quadrature
     hmatrices
+    linear_systems
     options
-
+    faq
 
 

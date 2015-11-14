@@ -238,8 +238,6 @@ Function and class reference (Laplace)
 .. autofunction:: bempp.api.operators.boundary.laplace.adjoint_double_layer
 .. autofunction:: bempp.api.operators.boundary.laplace.hypersingular
 .. autofunction:: bempp.api.operators.boundary.laplace.multitrace_operator
-.. autofunction:: bempp.api.operators.boundary.laplace.interior_calderon_projector
-.. autofunction:: bempp.api.operators.boundary.laplace.exterior_calderon_projector
 .. autofunction:: bempp.api.operators.potential.laplace.single_layer
 .. autofunction:: bempp.api.operators.potential.laplace.double_layer
 
@@ -250,8 +248,6 @@ Function and class reference (Modified Helmholtz)
 .. autofunction:: bempp.api.operators.boundary.modified_helmholtz.adjoint_double_layer
 .. autofunction:: bempp.api.operators.boundary.modified_helmholtz.hypersingular
 .. autofunction:: bempp.api.operators.boundary.modified_helmholtz.multitrace_operator
-.. autofunction:: bempp.api.operators.boundary.modified_helmholtz.interior_calderon_projector
-.. autofunction:: bempp.api.operators.boundary.modified_helmholtz.exterior_calderon_projector
 .. autofunction:: bempp.api.operators.potential.modified_helmholtz.single_layer
 .. autofunction:: bempp.api.operators.potential.modified_helmholtz.double_layer
 
@@ -265,8 +261,6 @@ Function and class reference (Helmholtz)
 .. autofunction:: bempp.api.operators.boundary.helmholtz.hypersingular
 
 .. autofunction:: bempp.api.operators.boundary.helmholtz.multitrace_operator
-.. autofunction:: bempp.api.operators.boundary.helmholtz.interior_calderon_projector
-.. autofunction:: bempp.api.operators.boundary.helmholtz.exterior_calderon_projector
 .. autofunction:: bempp.api.operators.boundary.helmholtz.osrc_dtn
 .. autofunction:: bempp.api.operators.boundary.helmholtz.osrc_ntd
 

@@ -37,7 +37,7 @@ Installing a binary package on Linux
 
 We offer binary packages for various Linux distribution. Currently, the following are supported.
 
-* `Ubuntu 14.04 <http://www.bempp.org/files/python-bempp_trusty_2.9.9_trusty_amd64.deb>`_
+* `Ubuntu 14.04 <http://www.bempp.org/files/python-bempp_trusty_2.9.9_amd64.deb>`_
 * `Ubuntu 15.04 <http://www.bempp.org/files/python-bempp_vivid_2.9.9_amd64.deb>`_
 * `Ubuntu 15.10 <http://www.bempp.org/files/python-bempp_wily_2.9.9_amd64.deb>`_
 
