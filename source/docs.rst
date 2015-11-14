@@ -12,6 +12,7 @@ Documentation
     quadrature
     hmatrices
     linear_systems
+    gmsh_interface
     options
     faq
 
