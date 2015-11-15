@@ -105,12 +105,15 @@ This can take a long time as several dependencies need to be installed first. An
 Testing the installation
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-To test BEM++ simply run in the Python interpreter the commands::
+To test BEM++ you should use pytest. The built-in test runner in BEM++ currently has problems with Homebrew. To perform the unit tests first install pytest with::
 
-    import bempp.api
-    bempp.api.test()
+    pip install --upgrade pytest
 
-This runs a range of unit tests. Note that if Gmsh is not installed then the first command will give a warning and several unit tests may not work properly.
+Then run::
+
+    py.test /usr/local/lib/python2.7/site-packages/bempp
+
+This runs a range of unit tests. Note that if Gmsh is not installed then several unit tests may not work properly.
 
 
 .. _sourceinstall:
