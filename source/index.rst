@@ -70,7 +70,10 @@ Development
 -----------
 BEM++ is developed at `University College London <http://www.ucl.ac.uk>`_. The
 current development team includes Simon Arridge, Timo Betcke,
-Matthew Scroggs and Elwin Van 't Wout. Much of the original work on BEM++ was done by Wojciech Śmigaj, now at Simpleware Ltd. BEM++ is supported by `EPSRC <http://www.epsrc.ac.uk>`_ Grants EP/I030042/1 and EP/K03829X/1. The testing and installation infrastructure for BEM++ was developed by the UCL Research Software Development Team.
+Matthew Scroggs and Elwin Van 't Wout (now at Pontificial Catholic University of Chile). Much of the original work on BEM++ was done by Wojciech Śmigaj, now at Simpleware Ltd. We are very grateful for the substantial contributions of the `UCL Research Software Development Team <http://www.ucl.ac.uk/research-it-services/about/research-software-development>`_ to the code itself, installers and testing environment. BEM++ is supported by `EPSRC <http://www.epsrc.ac.uk>`_ Grants EP/I030042/1 and EP/K03829X/1. 
+
+We would also like to acknowledge support from the `Dune Project <https://www.dune-project.org>`_ for the integration of Dune into BEM++ and the `HyENA Team <http://portal.tugraz.at/portal/page/portal/Files/i2610/files/Forschung/Software/HyENA/html/index.html>`_ at the Technical University Graz who provided definitions of the core integration rules to the project.
+
 
 .. toctree::
     :hidden:
