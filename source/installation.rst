@@ -20,7 +20,7 @@ We provide a VirtualBox image with a preconfigured IPython Notebook
 server that runs BEM++ and `FEniCS <www.fenicsproject.org>`_. To use this image please do the following.
 
 * Download a recent version of `Oracle VirtualBox <https://www.virtualbox.org>`_ and install it. VirtualBox is a free and capable virtualization environment.
-* Download the `BEM++ VirtualBox image <http://www.bempp.org/files/Ubuntu_BEMPP_3.0.0.ova>`_
+* Download the `BEM++ VirtualBox image <http://www.bempp.org/files/Ubuntu_BEMPP_3.0.1.ova>`_
 * Start VirtualBox and import the image using ``File -> Import Appliance``.
 * After importing the image you will see a new entry for BEMPP in the list of virtual machines. Click on it and then click on the Settings icon.
 * In the settings under ``System`` adapt the available memory and number of processes that the virtual machine should use. Default is 4 Cores and 4GB RAM. This depends on your system and should not exceed your existing hardware.
@@ -37,9 +37,9 @@ Installing a binary package on Linux
 
 We offer binary packages for various Linux distribution. Currently, the following are supported.
 
-* `Ubuntu 14.04 <http://www.bempp.org/files/python-bempp_trusty_3.0.0_amd64.deb>`_
-* `Ubuntu 15.04 <http://www.bempp.org/files/python-bempp_vivid_3.0.0_amd64.deb>`_
-* `Ubuntu 15.10 <http://www.bempp.org/files/python-bempp_wily_3.0.0_amd64.deb>`_
+* `Ubuntu 14.04 <http://www.bempp.org/files/python-bempp_trusty_3.0.1_amd64.deb>`_
+* `Ubuntu 15.04 <http://www.bempp.org/files/python-bempp_vivid_3.0.1_amd64.deb>`_
+* `Ubuntu 15.10 <http://www.bempp.org/files/python-bempp_wily_3.0.1_amd64.deb>`_
 
 To work properly at least the packages ``libtbb2`` and ``python-scipy`` also need to be installed. To install the packages from the command line in Ubuntu just use the commands::
 
